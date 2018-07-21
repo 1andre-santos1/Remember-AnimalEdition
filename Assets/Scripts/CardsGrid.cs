@@ -62,9 +62,12 @@ public class CardsGrid : MonoBehaviour
                     }
                 }
             }
+            if (ocurredMatching)
+                GameObject.FindObjectOfType<GameManager>().IncrementTimeLimit();
+            else
+                GameObject.FindObjectOfType<GameManager>().DecreaseTimeLeft();
         }
-        if(ocurredMatching)
-            GameObject.FindObjectOfType<GameManager>().IncrementTimeLimit();
+        
     }
 
     public int HowManyCardsAreTurn(int id)

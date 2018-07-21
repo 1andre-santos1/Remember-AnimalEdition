@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int TimeLimit = 20;
     public float Timer = 0;
     public int IncrementOnTimeLimit = 5;
+    public int IncrementOnTimer = 5;
 
     public bool isGameActive = false;
 
@@ -35,5 +36,10 @@ public class GameManager : MonoBehaviour
     {
         TimeLimit += IncrementOnTimeLimit;
     }
-
+    public void DecreaseTimeLeft()
+    {
+        Timer += IncrementOnTimer;
+        if(Timer >= TimeLimit)
+            Timer = TimeLimit;
+    }
 }
