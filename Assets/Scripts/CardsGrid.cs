@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardsGrid : MonoBehaviour
 {
     public int CardsTurned;
+    public int MatchedCards;
     public Sprite[] CardsSprite;
 
     private GameObject[] ChildCards;
@@ -14,6 +15,7 @@ public class CardsGrid : MonoBehaviour
     {
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
         CardsTurned = 0;
+        MatchedCards = 0;
     }
 
     public void CheckMatches()
@@ -29,6 +31,9 @@ public class CardsGrid : MonoBehaviour
                     else
                     {
                         card.GetComponent<Card>().isInteractable = false;
+                        MatchedCards++;
+                        if (MatchedCards == ChildCards.Length)
+                            Debug.Log("Won Game");
                     }
                 }
             }
@@ -55,14 +60,15 @@ public class CardsGrid : MonoBehaviour
 
         idsTurned = new List<int>();
         CardsTurned = 0;
+        MatchedCards = 0;
         foreach (var card in ChildCards)
         {
-            if (card.GetComponent<Card>().isTurned && card.GetComponent<Card>().isInteractable)
+            Card c = card.GetComponent<Card>();
+            if (c.isTurned && c.isInteractable)
             {
                 CardsTurned++;
                 idsTurned.Add(card.GetComponent<Card>().id);
             }
         }
-            
     }
 }

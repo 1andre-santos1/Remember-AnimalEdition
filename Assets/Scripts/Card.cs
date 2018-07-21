@@ -10,11 +10,13 @@ public class Card : MonoBehaviour
 
     private Animator anim;
     private CardsGrid cardsGrid;
+    private GameManager gameManager;
 
 	void Start () {
         anim = GetComponent<Animator>();
         anim.enabled = true;
         cardsGrid = transform.parent.GetComponent<CardsGrid>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
 
         isTurned = false;
         isInteractable = true;
@@ -25,9 +27,7 @@ public class Card : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!isInteractable)
-            return;
-        if (isTurned)
+        if (!isInteractable || isTurned || !gameManager.isGameActive)
             return;
 
         isTurned = !isTurned;
