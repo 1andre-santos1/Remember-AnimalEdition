@@ -14,7 +14,6 @@ public class Card : MonoBehaviour
 
 	void Start () {
         anim = GetComponent<Animator>();
-        anim.enabled = true;
         cardsGrid = transform.parent.GetComponent<CardsGrid>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
 

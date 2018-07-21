@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public float Timer = 10f;
-    public bool isGameActive = true;
+    public bool isGameActive = false;
 
     private UIManager uimanager;
 

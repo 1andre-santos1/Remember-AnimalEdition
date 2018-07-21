@@ -16,6 +16,26 @@ public class CardsGrid : MonoBehaviour
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
         CardsTurned = 0;
         MatchedCards = 0;
+
+        foreach(var card in ChildCards)
+        {
+            card.GetComponent<Card>().isInteractable = false;
+        }
+        StartCoroutine("BeginCardDelay");
+    }
+
+    IEnumerator BeginCardDelay()
+    {
+        Debug.Log("Start Delay");
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Begin Game");
+        foreach (var card in ChildCards)
+        {
+            card.GetComponent<Animator>().enabled = true;
+            card.GetComponent<Card>().ToggleTurn();
+            card.GetComponent<Card>().isInteractable = true;
+        }
+        GameObject.FindObjectOfType<GameManager>().isGameActive = true;
     }
 
     public void CheckMatches()
