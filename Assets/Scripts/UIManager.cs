@@ -7,9 +7,9 @@ public class UIManager : MonoBehaviour
 {
     public GameObject TimerText;
 
-    public void UpdateTimer(float value)
+    public void UpdateTimer(string value)
     {
-        TimerText.GetComponent<Text>().text = ""+value;
+        TimerText.GetComponent<Text>().text = value;
     }
 	
 }

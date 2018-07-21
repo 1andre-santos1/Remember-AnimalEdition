@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float Timer = 10f;
+    public int TimeLimit = 20;
+    public float Timer = 0;
+    public int IncrementOnTimeLimit = 5;
+
     public bool isGameActive = false;
 
     private UIManager uimanager;
@@ -18,14 +21,19 @@ public class GameManager : MonoBehaviour
         if (!isGameActive)
             return;
 
-        Timer -= Time.deltaTime;
-        if(Timer <= 0f)
+        Timer += Time.deltaTime;
+        if(Timer >= TimeLimit)
         {
             Debug.Log("Lost Game");
             isGameActive = false;
             return;
         }
-        uimanager.UpdateTimer(Mathf.FloorToInt(Timer));
+        uimanager.UpdateTimer(Mathf.FloorToInt(Timer)+"/"+TimeLimit);
+    }
+
+    public void IncrementTimeLimit()
+    {
+        TimeLimit += IncrementOnTimeLimit;
     }
 
 }

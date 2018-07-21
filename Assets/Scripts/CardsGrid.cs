@@ -40,6 +40,7 @@ public class CardsGrid : MonoBehaviour
 
     public void CheckMatches()
     {
+        bool ocurredMatching = false;
         if (CardsTurned >= 2)
         {
             foreach (var card in ChildCards)
@@ -52,12 +53,18 @@ public class CardsGrid : MonoBehaviour
                     {
                         card.GetComponent<Card>().isInteractable = false;
                         MatchedCards++;
+                        ocurredMatching = true;
                         if (MatchedCards == ChildCards.Length)
+                        {
                             Debug.Log("Won Game");
+                            GameObject.FindObjectOfType<GameManager>().isGameActive = false;
+                        }
                     }
                 }
             }
         }
+        if(ocurredMatching)
+            GameObject.FindObjectOfType<GameManager>().IncrementTimeLimit();
     }
 
     public int HowManyCardsAreTurn(int id)
