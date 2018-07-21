@@ -5,6 +5,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public bool isTurned;
+    public int id;
+    public bool isInteractable;
 
     private Animator anim;
     private CardsGrid cardsGrid;
@@ -15,6 +17,7 @@ public class Card : MonoBehaviour
         cardsGrid = transform.parent.GetComponent<CardsGrid>();
 
         isTurned = false;
+        isInteractable = true;
 
         anim.SetBool("canTurn", false);
         anim.SetBool("isTurned", isTurned);
@@ -22,8 +25,9 @@ public class Card : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log(cardsGrid.CardsTurned);
-        if (isTurned || cardsGrid.CardsTurned >= 2)
+        if (!isInteractable)
+            return;
+        if (isTurned)
             return;
 
         isTurned = !isTurned;
@@ -33,6 +37,8 @@ public class Card : MonoBehaviour
 
     public void ToggleTurn()
     {
+        if (!isInteractable)
+            return;
         if (!isTurned)
             return;
 
@@ -45,11 +51,14 @@ public class Card : MonoBehaviour
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
 
-        cardsGrid.UpdateCardsTurned();
+        if (isInteractable)
+        {
+            cardsGrid.UpdateCardsTurned();
 
-        anim.SetBool("isTurned", isTurned);
-        anim.SetBool("canTurn", false);
+            anim.SetBool("isTurned", isTurned);
+            anim.SetBool("canTurn", false);
 
-        cardsGrid.CheckMatches();
+            cardsGrid.CheckMatches();
+        }
     }
 }

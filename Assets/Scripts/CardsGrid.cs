@@ -5,8 +5,10 @@ using UnityEngine;
 public class CardsGrid : MonoBehaviour
 {
     public int CardsTurned;
+    public Sprite[] CardsSprite;
 
     private GameObject[] ChildCards;
+    private List<int> idsTurned;
 
     public void Start()
     {
@@ -21,9 +23,29 @@ public class CardsGrid : MonoBehaviour
             foreach (var card in ChildCards)
             {
                 if (card.GetComponent<Card>().isTurned)
-                    card.GetComponent<Card>().ToggleTurn();
+                {
+                    if(HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
+                        card.GetComponent<Card>().ToggleTurn();
+                    else
+                    {
+                        card.GetComponent<Card>().isInteractable = false;
+                    }
+                }
             }
         }
+    }
+
+    public int HowManyCardsAreTurn(int id)
+    {
+        int count = 0;
+        foreach (var card in ChildCards)
+        {
+            if (card.GetComponent<Card>().isTurned && card.GetComponent<Card>().id == id)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
     public void UpdateCardsTurned()
@@ -31,9 +53,16 @@ public class CardsGrid : MonoBehaviour
         if (ChildCards == null)
             return;
 
+        idsTurned = new List<int>();
         CardsTurned = 0;
         foreach (var card in ChildCards)
-            if (card.GetComponent<Card>().isTurned)
-               CardsTurned++;
+        {
+            if (card.GetComponent<Card>().isTurned && card.GetComponent<Card>().isInteractable)
+            {
+                CardsTurned++;
+                idsTurned.Add(card.GetComponent<Card>().id);
+            }
+        }
+            
     }
 }

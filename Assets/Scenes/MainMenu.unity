@@ -388,6 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb0653407db8514c9d15ffbcc93e1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardsTurned: 0
+  CardsSprite:
+  - {fileID: 21300000, guid: 41a0d2d52ca57ee4f8a52d34b24712ab, type: 3}
+  - {fileID: 21300000, guid: 5cca9cfc59a4c974eb9fde0c52a93012, type: 3}
+  - {fileID: 21300000, guid: 2bdac296bc506a841926b03157666bd6, type: 3}
 --- !u!4 &1149705439 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4611644492549690, guid: b87bf888148cf7d498a197cfc911bdee,
@@ -500,6 +505,10 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.6985294
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611644492549690, guid: b87bf888148cf7d498a197cfc911bdee, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b87bf888148cf7d498a197cfc911bdee, type: 2}
