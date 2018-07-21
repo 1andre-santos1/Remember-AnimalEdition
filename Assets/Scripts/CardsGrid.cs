@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class CardsGrid : MonoBehaviour
 {
-    private List<Card> ChildCards;
+    public int CardsTurned;
+
+    private GameObject[] ChildCards;
 
     public void Start()
     {
-        ChildCards = new List<Card>();
-        int childrenCount = transform.childCount;
-        for (int i = 0; i < childrenCount; i++)
-            ChildCards.Add(transform.GetChild(i).GetComponent<Card>());
+        ChildCards = GameObject.FindGameObjectsWithTag("Card");
+        CardsTurned = 0;
     }
 
-    private void Update()
+    public void CheckMatches()
     {
-        Debug.Log("Cards Turned: "+GetCardsTurned());
+        if (CardsTurned >= 2)
+        {
+            foreach (var card in ChildCards)
+            {
+                if (card.GetComponent<Card>().isTurned)
+                    card.GetComponent<Card>().ToggleTurn();
+            }
+        }
     }
 
-    private int GetCardsTurned()
+    public void UpdateCardsTurned()
     {
         if (ChildCards == null)
-            return 0;
+            return;
 
-        int count = 0;
+        CardsTurned = 0;
         foreach (var card in ChildCards)
-            if (card.isTurned)
-                count++;
-        return count;
+            if (card.GetComponent<Card>().isTurned)
+               CardsTurned++;
     }
 }
