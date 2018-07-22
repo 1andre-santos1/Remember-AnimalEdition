@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Lost Game");
             isGameActive = false;
+            uimanager.ShowPanelLoseMenu();
             return;
         }
         uimanager.UpdateTimer(Mathf.FloorToInt(Timer)+"/"+TimeLimit);
