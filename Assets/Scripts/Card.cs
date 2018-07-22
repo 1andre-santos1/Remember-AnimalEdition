@@ -7,6 +7,7 @@ public class Card : MonoBehaviour
     public bool isTurned;
     public int id;
     public bool isInteractable;
+    public AudioClip CardTurning;
 
     private Animator anim;
     private CardsGrid cardsGrid;
@@ -48,6 +49,9 @@ public class Card : MonoBehaviour
 
     IEnumerator TurnCard()
     {
+        GetComponent<AudioSource>().clip = CardTurning;
+        GetComponent<AudioSource>().Play();
+
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
 
         if (isInteractable)
