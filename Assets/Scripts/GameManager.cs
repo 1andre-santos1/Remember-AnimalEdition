@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
             return;
 
         Timer += Time.deltaTime;
-        if(Timer >= TimeLimit)
+        uimanager.UpdateTimer(Mathf.FloorToInt(Timer) + "/" + TimeLimit);
+        if (Timer >= TimeLimit)
         {
             Debug.Log("Lost Game");
             isGameActive = false;
             uimanager.ShowPanelLoseMenu();
             return;
         }
-        uimanager.UpdateTimer(Mathf.FloorToInt(Timer)+"/"+TimeLimit);
     }
 
     public void IncrementTimeLimit()
