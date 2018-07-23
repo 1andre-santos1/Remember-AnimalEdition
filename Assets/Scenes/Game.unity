@@ -1572,6 +1572,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatchedCard: {fileID: 8300000, guid: 4896b11719deea24e8f68ac89959dcad, type: 3}
   FailedMatchedCard: {fileID: 8300000, guid: d2471a0f74278df4bb1be3f49509a44d, type: 3}
+  WinSound: {fileID: 8300000, guid: 7ae7922af5098e649ba68db8002a631b, type: 3}
+  LoseSound: {fileID: 8300000, guid: 840709fba126de04ab9583075af74fec, type: 3}
 --- !u!1 &940436980
 GameObject:
   m_ObjectHideFlags: 0
