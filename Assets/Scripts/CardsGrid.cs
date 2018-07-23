@@ -51,14 +51,16 @@ public class CardsGrid : MonoBehaviour
                         card.GetComponent<Card>().ToggleTurn();
                     else
                     {
-                        card.GetComponent<Card>().isInteractable = false;
                         MatchedCards++;
-                        ocurredMatching = true;
                         if (MatchedCards == ChildCards.Length)
                         {
                             Debug.Log("Won Game");
                             GameObject.FindObjectOfType<GameManager>().isGameActive = false;
                         }
+                        if (!card.GetComponent<Card>().isInteractable)
+                            continue;
+                        card.GetComponent<Card>().isInteractable = false;
+                        ocurredMatching = true;
                     }
                 }
             }
