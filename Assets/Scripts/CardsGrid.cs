@@ -49,7 +49,10 @@ public class CardsGrid : MonoBehaviour
                 if (card.GetComponent<Card>().isTurned)
                 {
                     if(HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
+                    {
+                        GameObject.FindObjectOfType<SoundManager>().PlayFailedMatchedCardSound();
                         card.GetComponent<Card>().ToggleTurn();
+                    }
                     else
                     {
                         MatchedCards++;
@@ -60,6 +63,7 @@ public class CardsGrid : MonoBehaviour
                         }
                         if (!card.GetComponent<Card>().isInteractable)
                             continue;
+                        GameObject.FindObjectOfType<SoundManager>().PlayMatchedCardSound();
                         card.GetComponent<Card>().isInteractable = false;
                         ocurredMatching = true;
                     }
