@@ -60,6 +60,7 @@ public class CardsGrid : MonoBehaviour
                         {
                             Debug.Log("Won Game");
                             GameObject.FindObjectOfType<GameManager>().isGameActive = false;
+                            GameObject.FindObjectOfType<GameManager>().WinGame();
                         }
                         if (!card.GetComponent<Card>().isInteractable)
                             continue;

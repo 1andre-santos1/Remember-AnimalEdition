@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool isGameActive = false;
 
     private UIManager uimanager;
+    private int NumberOfCards = 6;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Lost Game");
             isGameActive = false;
             uimanager.ShowPanelLoseMenu();
+            GameObject.FindObjectOfType<SoundManager>().PlayLoseSound();
             return;
         }
     }
@@ -49,5 +51,19 @@ public class GameManager : MonoBehaviour
     {
         Tries++;
         uimanager.UpdateTries("Tries:" + Tries);
+    }
+    public void WinGame()
+    {
+        uimanager.UpdatePanelWinTriesText("Tries:" + Tries);
+        int numberOfStars;
+        if (Tries <= NumberOfCards / 2)
+            numberOfStars = 3;
+        else if (Tries <= NumberOfCards)
+            numberOfStars = 2;
+        else
+            numberOfStars = 1;
+        uimanager.UpdateStars(numberOfStars);
+        uimanager.ShowPanelWinMenu();
+        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
     }
 }

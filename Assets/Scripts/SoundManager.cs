@@ -6,7 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     public AudioClip MatchedCard;
     public AudioClip FailedMatchedCard;
-
+    public AudioClip WinSound;
+    public AudioClip LoseSound;
 
     public void PlayMatchedCardSound()
     {
@@ -16,6 +17,18 @@ public class SoundManager : MonoBehaviour
     public void PlayFailedMatchedCardSound()
     {
         GetComponent<AudioSource>().clip = FailedMatchedCard;
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void PlayWinSound()
+    {
+        GetComponent<AudioSource>().clip = WinSound;
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void PlayLoseSound()
+    {
+        GetComponent<AudioSource>().clip = LoseSound;
         GetComponent<AudioSource>().Play();
     }
 }
