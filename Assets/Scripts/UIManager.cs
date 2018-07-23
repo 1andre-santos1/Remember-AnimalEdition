@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject TimerText;
     public GameObject PanelLoseMenu;
+    public GameObject TriesText;
 
     public void UpdateTimer(string value)
     {
@@ -15,5 +16,9 @@ public class UIManager : MonoBehaviour
 	public void ShowPanelLoseMenu()
     {
         PanelLoseMenu.SetActive(true);
+    }
+    public void UpdateTries(string value)
+    {
+        TriesText.GetComponent<Text>().text = value;
     }
 }

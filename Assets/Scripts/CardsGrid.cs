@@ -43,6 +43,7 @@ public class CardsGrid : MonoBehaviour
         bool ocurredMatching = false;
         if (CardsTurned >= 2)
         {
+            GameObject.FindObjectOfType<GameManager>().IncreaseTries();
             foreach (var card in ChildCards)
             {
                 if (card.GetComponent<Card>().isTurned)

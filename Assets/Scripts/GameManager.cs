@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int TimeLimit = 20;
     public float Timer = 0;
+    public int Tries = 0;
     public int IncrementOnTimeLimit = 5;
     public int IncrementOnTimer = 5;
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uimanager = GameObject.FindObjectOfType<UIManager>();
+        uimanager.UpdateTries("Tries:" + Tries);
     }
     public void Update()
     {
@@ -42,5 +44,10 @@ public class GameManager : MonoBehaviour
         Timer += IncrementOnTimer;
         if(Timer >= TimeLimit)
             Timer = TimeLimit;
+    }
+    public void IncreaseTries()
+    {
+        Tries++;
+        uimanager.UpdateTries("Tries:" + Tries);
     }
 }
