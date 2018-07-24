@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c7171996e154d9449b0d1527e04436d2
-timeCreated: 1532232775
+guid: cde7e976a93ab634f98524791bbfe6da
+timeCreated: 1532397433
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: DatBox
+  fontName: Soup of Justice
   fontNames:
-  - DatBox
+  - Soup of Justice
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

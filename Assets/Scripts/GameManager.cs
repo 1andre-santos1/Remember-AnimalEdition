@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uimanager = GameObject.FindObjectOfType<UIManager>();
-        uimanager.UpdateTries("Tries:" + Tries);
+        uimanager.UpdateTries("" + Tries);
     }
     public void Update()
     {
@@ -50,11 +50,11 @@ public class GameManager : MonoBehaviour
     public void IncreaseTries()
     {
         Tries++;
-        uimanager.UpdateTries("Tries:" + Tries);
+        uimanager.UpdateTries("" + Tries);
     }
     public void WinGame()
     {
-        uimanager.UpdatePanelWinTriesText("Tries:" + Tries);
+        uimanager.UpdatePanelWinTriesText(""+Tries);
         int numberOfStars;
         if (Tries <= NumberOfCards / 2)
             numberOfStars = 3;
