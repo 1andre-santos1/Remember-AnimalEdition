@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int TimeLimit = 20;
-    public float Timer = 0;
     public int Tries = 0;
-    public int IncrementOnTimeLimit = 5;
-    public int IncrementOnTimer = 5;
     public int NumberOfCards = 6;
 
     public bool isGameActive = false;
@@ -18,34 +14,24 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uimanager = GameObject.FindObjectOfType<UIManager>();
-        uimanager.UpdateTries("" + Tries);
     }
-    public void Update()
-    {
-        if (!isGameActive)
-            return;
 
-        Timer += Time.deltaTime;
-        uimanager.UpdateTimer(Mathf.FloorToInt(Timer) + "/" + TimeLimit);
-        if (Timer >= TimeLimit)
-        {
-            Debug.Log("Lost Game");
-            isGameActive = false;
-            uimanager.ShowPanelLoseMenu();
-            GameObject.FindObjectOfType<SoundManager>().PlayLoseSound();
-            return;
-        }
+    public void LoseGame()
+    {
+        Debug.Log("Lost Game");
+        isGameActive = false;
+        uimanager.ShowPanelLoseMenu();
+        GameObject.FindObjectOfType<SoundManager>().PlayLoseSound();
+        return;
     }
 
     public void IncrementTimeLimit()
     {
-        TimeLimit += IncrementOnTimeLimit;
+        uimanager.IncrementBar();
     }
     public void DecreaseTimeLeft()
     {
-        Timer += IncrementOnTimer;
-        if(Timer >= TimeLimit)
-            Timer = TimeLimit;
+        uimanager.DecrementBar();
     }
     public void IncreaseTries()
     {
@@ -55,13 +41,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         uimanager.UpdatePanelWinTriesText(""+Tries);
-        int numberOfStars;
-        if (Tries <= NumberOfCards / 2)
-            numberOfStars = 3;
-        else if (Tries <= NumberOfCards)
-            numberOfStars = 2;
-        else
-            numberOfStars = 1;
+        int numberOfStars = uimanager.GetStarsBasedOnBar();
         uimanager.UpdateStars(numberOfStars);
         uimanager.ShowPanelWinMenu();
         GameObject.FindObjectOfType<SoundManager>().PlayWinSound();

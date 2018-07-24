@@ -21,7 +21,7 @@ public class CardsGrid : MonoBehaviour
         MatchedCards = 0;
 
         FillGridWithCards();
-        
+
         StartCoroutine("BeginCardDelay");
     }
 
@@ -67,7 +67,7 @@ public class CardsGrid : MonoBehaviour
         }
     }
 
-        IEnumerator BeginCardDelay()
+    IEnumerator BeginCardDelay()
     {
         Debug.Log("Start Delay");
         yield return new WaitForSeconds(5f);
@@ -79,6 +79,7 @@ public class CardsGrid : MonoBehaviour
             card.GetComponent<Card>().isInteractable = true;
         }
         gameManager.isGameActive = true;
+        GameObject.FindObjectOfType<UIManager>().StartBarDecreasing();
     }
 
     public void CheckMatches()
@@ -91,7 +92,7 @@ public class CardsGrid : MonoBehaviour
             {
                 if (card.GetComponent<Card>().isTurned)
                 {
-                    if(HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
+                    if (HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
                     {
                         GameObject.FindObjectOfType<SoundManager>().PlayFailedMatchedCardSound();
                         card.GetComponent<Card>().ToggleTurn();
@@ -118,7 +119,7 @@ public class CardsGrid : MonoBehaviour
             else
                 gameManager.DecreaseTimeLeft();
         }
-        
+
     }
 
     public int HowManyCardsAreTurn(int id)
