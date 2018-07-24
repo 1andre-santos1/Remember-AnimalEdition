@@ -10,21 +10,64 @@ public class CardsGrid : MonoBehaviour
 
     private GameObject[] ChildCards;
     private List<int> idsTurned;
+    private GameManager gameManager;
 
     public void Start()
     {
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
         CardsTurned = 0;
         MatchedCards = 0;
 
-        foreach(var card in ChildCards)
-        {
-            card.GetComponent<Card>().isInteractable = false;
-        }
+        FillGridWithCards();
+        
         StartCoroutine("BeginCardDelay");
     }
 
-    IEnumerator BeginCardDelay()
+    public void FillGridWithCards()
+    {
+        List<Sprite> spritesSelected = new List<Sprite>();
+
+        //seleciona os ids (id da carta e do indice em cards sprite)
+        for (int i = 0; i < gameManager.NumberOfCards / 2; i++)
+        {
+            int randomNumber = Random.Range(0, CardsSprite.Length);
+            while (spritesSelected.Contains(CardsSprite[randomNumber]))
+                randomNumber = Random.Range(0, CardsSprite.Length);
+
+            spritesSelected.Add(CardsSprite[randomNumber]);
+        }
+
+        List<int> emptyCards = new List<int>();
+        int count = 0;
+        foreach (var card in ChildCards)
+        {
+            card.GetComponent<Card>().isInteractable = false;
+            int aux = count;
+            emptyCards.Add(aux);
+            count++;
+        }
+
+        foreach (var sprite in spritesSelected)
+        {
+            int n = Random.Range(0, emptyCards.Count);
+            int card1 = emptyCards[n];
+            emptyCards.Remove(emptyCards[n]);
+
+            n = Random.Range(0, emptyCards.Count);
+            int card2 = emptyCards[n];
+            emptyCards.Remove(emptyCards[n]);
+
+            ChildCards[card1].transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+            ChildCards[card1].GetComponent<Card>().id = spritesSelected.IndexOf(sprite);
+
+            ChildCards[card2].transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+            ChildCards[card2].GetComponent<Card>().id = spritesSelected.IndexOf(sprite);
+        }
+    }
+
+        IEnumerator BeginCardDelay()
     {
         Debug.Log("Start Delay");
         yield return new WaitForSeconds(5f);
@@ -35,7 +78,7 @@ public class CardsGrid : MonoBehaviour
             card.GetComponent<Card>().ToggleTurn();
             card.GetComponent<Card>().isInteractable = true;
         }
-        GameObject.FindObjectOfType<GameManager>().isGameActive = true;
+        gameManager.isGameActive = true;
     }
 
     public void CheckMatches()
@@ -43,7 +86,7 @@ public class CardsGrid : MonoBehaviour
         bool ocurredMatching = false;
         if (CardsTurned >= 2)
         {
-            GameObject.FindObjectOfType<GameManager>().IncreaseTries();
+            gameManager.IncreaseTries();
             foreach (var card in ChildCards)
             {
                 if (card.GetComponent<Card>().isTurned)
@@ -59,8 +102,8 @@ public class CardsGrid : MonoBehaviour
                         if (MatchedCards == ChildCards.Length)
                         {
                             Debug.Log("Won Game");
-                            GameObject.FindObjectOfType<GameManager>().isGameActive = false;
-                            GameObject.FindObjectOfType<GameManager>().WinGame();
+                            gameManager.isGameActive = false;
+                            gameManager.WinGame();
                         }
                         if (!card.GetComponent<Card>().isInteractable)
                             continue;
@@ -71,9 +114,9 @@ public class CardsGrid : MonoBehaviour
                 }
             }
             if (ocurredMatching)
-                GameObject.FindObjectOfType<GameManager>().IncrementTimeLimit();
+                gameManager.IncrementTimeLimit();
             else
-                GameObject.FindObjectOfType<GameManager>().DecreaseTimeLeft();
+                gameManager.DecreaseTimeLeft();
         }
         
     }

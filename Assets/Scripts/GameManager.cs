@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour
     public int Tries = 0;
     public int IncrementOnTimeLimit = 5;
     public int IncrementOnTimer = 5;
+    public int NumberOfCards = 6;
 
     public bool isGameActive = false;
 
     private UIManager uimanager;
-    private int NumberOfCards = 6;
 
     private void Start()
     {
