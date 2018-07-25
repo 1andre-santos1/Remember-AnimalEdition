@@ -10,12 +10,18 @@ public class CardsGrid : MonoBehaviour
 
     private GameObject[] ChildCards;
     private List<int> idsTurned;
+
     private GameManager gameManager;
+    private SoundManager soundManager;
+    private UIManager uiManager;
 
     public void Start()
     {
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
+
         gameManager = GameObject.FindObjectOfType<GameManager>();
+        soundManager = GameObject.FindObjectOfType<SoundManager>();
+        uiManager = GameObject.FindObjectOfType<UIManager>();
 
         CardsTurned = 0;
         MatchedCards = 0;
@@ -69,9 +75,7 @@ public class CardsGrid : MonoBehaviour
 
     IEnumerator BeginCardDelay()
     {
-        Debug.Log("Start Delay");
         yield return new WaitForSeconds(5f);
-        Debug.Log("Begin Game");
         foreach (var card in ChildCards)
         {
             card.GetComponent<Animator>().enabled = true;
@@ -79,7 +83,7 @@ public class CardsGrid : MonoBehaviour
             card.GetComponent<Card>().isInteractable = true;
         }
         gameManager.isGameActive = true;
-        GameObject.FindObjectOfType<UIManager>().StartBarDecreasing();
+        uiManager.StartBarDecreasing();
     }
 
     public void CheckMatches()
@@ -94,7 +98,7 @@ public class CardsGrid : MonoBehaviour
                 {
                     if (HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
                     {
-                        GameObject.FindObjectOfType<SoundManager>().PlayFailedMatchedCardSound();
+                        soundManager.PlayFailedMatchedCardSound();
                         card.GetComponent<Card>().ToggleTurn();
                     }
                     else
@@ -102,13 +106,12 @@ public class CardsGrid : MonoBehaviour
                         MatchedCards++;
                         if (MatchedCards == ChildCards.Length)
                         {
-                            Debug.Log("Won Game");
                             gameManager.isGameActive = false;
                             gameManager.WinGame();
                         }
                         if (!card.GetComponent<Card>().isInteractable)
                             continue;
-                        GameObject.FindObjectOfType<SoundManager>().PlayMatchedCardSound();
+                        soundManager.PlayMatchedCardSound();
                         card.GetComponent<Card>().isInteractable = false;
                         ocurredMatching = true;
                     }

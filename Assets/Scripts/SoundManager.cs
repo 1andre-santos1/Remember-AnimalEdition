@@ -9,26 +9,33 @@ public class SoundManager : MonoBehaviour
     public AudioClip WinSound;
     public AudioClip LoseSound;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void PlayMatchedCardSound()
     {
-        GetComponent<AudioSource>().clip = MatchedCard;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = MatchedCard;
+        audioSource.Play();
     }
     public void PlayFailedMatchedCardSound()
     {
-        GetComponent<AudioSource>().clip = FailedMatchedCard;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = FailedMatchedCard;
+        audioSource.Play();
     }
 
     public void PlayWinSound()
     {
-        GetComponent<AudioSource>().clip = WinSound;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = WinSound;
+        audioSource.Play();
     }
 
     public void PlayLoseSound()
     {
-        GetComponent<AudioSource>().clip = LoseSound;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = LoseSound;
+        audioSource.Play();
     }
 }

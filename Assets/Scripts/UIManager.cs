@@ -49,7 +49,6 @@ public class UIManager : MonoBehaviour
         {
             yield return new WaitForSeconds(TimeBarDecreasing);
             StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x - AmountBarDecreasing, StarsBar.GetComponent<RectTransform>().offsetMin.y);
-            Debug.Log(GetStarsBasedOnBar());
 
             StartCoroutine("DecreaseBar");
         }
@@ -68,15 +67,12 @@ public class UIManager : MonoBehaviour
         if (!gameManager.isGameActive)
             return;
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x - AmountDecrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
-        Debug.Log(GetStarsBasedOnBar());
     }
     public void IncrementBar()
     {
         if (!gameManager.isGameActive)
             return;
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x + AmountIncrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
-        Debug.Log(GetStarsBasedOnBar());
-
     }
     public void UpdateTries(string value)
     {

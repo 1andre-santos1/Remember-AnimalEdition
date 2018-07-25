@@ -12,11 +12,13 @@ public class Card : MonoBehaviour
     private Animator anim;
     private CardsGrid cardsGrid;
     private GameManager gameManager;
+    private AudioSource audioSource;
 
 	void Start () {
         anim = GetComponent<Animator>();
         cardsGrid = transform.parent.GetComponent<CardsGrid>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+        audioSource = GetComponent<AudioSource>();
 
         isTurned = false;
         isInteractable = true;
@@ -49,8 +51,8 @@ public class Card : MonoBehaviour
 
     IEnumerator TurnCard()
     {
-        GetComponent<AudioSource>().clip = CardTurning;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = CardTurning;
+        audioSource.Play();
 
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
 

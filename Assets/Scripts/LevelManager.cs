@@ -15,7 +15,11 @@ public class LevelManager : MonoBehaviour
     }
     public void RestartScene()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int currentScene = GetCurrentSceneIndex();
         LoadScene(currentScene);
+    }
+    public int GetCurrentSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
     }
 }

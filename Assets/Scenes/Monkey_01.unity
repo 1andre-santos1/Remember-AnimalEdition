@@ -1366,6 +1366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476492349}
   - component: {fileID: 476492350}
+  - component: {fileID: 476492351}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1398,8 +1399,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tries: 0
-  NumberOfCards: 6
+  NumberOfCards: 0
+  Bar_AutoTimeToDecrease: 0
+  Bar_AutoAmountToDecrease: 0
+  Bar_MatchedCardIncrement: 0
+  Bar_FailedMatchDecrement: 0
+  Probability_CardsWithSameColor: 0
   isGameActive: 0
+--- !u!114 &476492351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 476492348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d4e8dd811f7f84e938253d87405438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsText: {fileID: 4900000, guid: 3c2096daeec13d142b498f5b750e4c0e, type: 3}
 --- !u!1001 &573815715
 Prefab:
   m_ObjectHideFlags: 0
@@ -1501,10 +1519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7110ef75e7e41614e86531a1e56a50df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBarDecreasing: 0.8
-  AmountBarDecreasing: 10
-  AmountIncrementBar: 100
-  AmountDecrementBar: 50
   PanelLoseMenu: {fileID: 1527681237}
   TriesText: {fileID: 1990901588}
   StarsBar: {fileID: 26836556}

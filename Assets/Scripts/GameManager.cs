@@ -18,11 +18,15 @@ public class GameManager : MonoBehaviour
 
     private UIManager uimanager;
     private DataController dataController;
+    private LevelManager levelManager;
 
     private void Awake()
     {
         dataController = GetComponent<DataController>();
-        Level level = dataController.GetLevels()[SceneManager.GetActiveScene().buildIndex-1];
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+
+        Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex()-1];
+
         NumberOfCards = level.numberOfCards;
         Bar_AutoTimeToDecrease = level.bar_AutoTimeToDecrease;
         Bar_AutoAmountToDecrease = level.bar_AutoAmountToDecrease;
@@ -38,7 +42,6 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
-        Debug.Log("Lost Game");
         isGameActive = false;
         uimanager.ShowPanelLoseMenu();
         GameObject.FindObjectOfType<SoundManager>().PlayLoseSound();

@@ -8,7 +8,21 @@
       "bar_AutoAmountToDecrease": 10,
       "bar_MatchedCardIncrement": 100,
       "bar_FailedMatchDecrement": 50,
-      "probability_CardsWithSameColor": 2
+      "probability_CardsWithSameColor": 2,
+      "locked": false,
+      "stars": 2
+    },
+    {
+      "host": "monkey",
+      "index": 2,
+      "numberOfCards": 8,
+      "bar_AutoTimeToDecrease": 1,
+      "bar_AutoAmountToDecrease": 10,
+      "bar_MatchedCardIncrement": 80,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2,
+      "locked": true,
+      "stars": 0
     }
   ]
 }
