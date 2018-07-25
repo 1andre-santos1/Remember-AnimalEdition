@@ -1,0 +1,14 @@
+{
+  "levels": [
+    {
+      "host": "monkey",
+      "index": 1,
+      "numberOfCards": 6,
+      "bar_AutoTimeToDecrease": 1,
+      "bar_AutoAmountToDecrease": 10,
+      "bar_MatchedCardIncrement": 100,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2
+    }
+  ]
+}

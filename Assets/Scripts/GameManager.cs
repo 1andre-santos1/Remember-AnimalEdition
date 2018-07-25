@@ -1,15 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int Tries = 0;
-    public int NumberOfCards = 6;
+
+    public int NumberOfCards;
+    public float Bar_AutoTimeToDecrease;
+    public float Bar_AutoAmountToDecrease;
+    public float Bar_MatchedCardIncrement;
+    public float Bar_FailedMatchDecrement;
+    public int Probability_CardsWithSameColor;
 
     public bool isGameActive = false;
 
     private UIManager uimanager;
+    private DataController dataController;
+
+    private void Awake()
+    {
+        dataController = GetComponent<DataController>();
+        Level level = dataController.GetLevels()[SceneManager.GetActiveScene().buildIndex-1];
+        NumberOfCards = level.numberOfCards;
+        Bar_AutoTimeToDecrease = level.bar_AutoTimeToDecrease;
+        Bar_AutoAmountToDecrease = level.bar_AutoAmountToDecrease;
+        Bar_MatchedCardIncrement = level.bar_MatchedCardIncrement;
+        Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;
+        Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
+    }
 
     private void Start()
     {

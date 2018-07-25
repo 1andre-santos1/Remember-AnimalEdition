@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public float TimeBarDecreasing = 1f;
-    public float AmountBarDecreasing = 10f;
-    public float AmountIncrementBar = 100f;
-    public float AmountDecrementBar = 50f;
     public GameObject PanelLoseMenu;
     public GameObject TriesText;
     public GameObject StarsBar;
@@ -19,6 +15,22 @@ public class UIManager : MonoBehaviour
     public Sprite DarkStar;
     public Sprite Star;
 
+    private float TimeBarDecreasing;
+    private float AmountBarDecreasing;
+    private float AmountIncrementBar;
+    private float AmountDecrementBar;
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        TimeBarDecreasing = gameManager.Bar_AutoTimeToDecrease;
+        AmountBarDecreasing = gameManager.Bar_AutoAmountToDecrease;
+        AmountIncrementBar = gameManager.Bar_MatchedCardIncrement;
+        AmountDecrementBar = gameManager.Bar_FailedMatchDecrement;
+    }
+
     public void StartBarDecreasing()
     {
         StartCoroutine("DecreaseBar");
@@ -26,14 +38,14 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
-        if (!GameObject.FindObjectOfType<GameManager>().isGameActive)
+        if (!gameManager.isGameActive)
             return;
         if (StarsBar.GetComponent<RectTransform>().offsetMin.x < 47f)
-            GameObject.FindObjectOfType<GameManager>().LoseGame();
+            gameManager.LoseGame();
     }
     IEnumerator DecreaseBar()
     {
-        if (GameObject.FindObjectOfType<GameManager>().isGameActive)
+        if (gameManager.isGameActive)
         {
             yield return new WaitForSeconds(TimeBarDecreasing);
             StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x - AmountBarDecreasing, StarsBar.GetComponent<RectTransform>().offsetMin.y);
@@ -53,14 +65,14 @@ public class UIManager : MonoBehaviour
     }
     public void DecrementBar()
     {
-        if (!GameObject.FindObjectOfType<GameManager>().isGameActive)
+        if (!gameManager.isGameActive)
             return;
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x - AmountDecrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
         Debug.Log(GetStarsBasedOnBar());
     }
     public void IncrementBar()
     {
-        if (!GameObject.FindObjectOfType<GameManager>().isGameActive)
+        if (!gameManager.isGameActive)
             return;
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x + AmountIncrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
         Debug.Log(GetStarsBasedOnBar());
