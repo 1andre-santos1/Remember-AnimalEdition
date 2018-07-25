@@ -16,4 +16,5 @@ public class Level
     public int probability_CardsWithSameColor = 0;
     public bool locked = true;
     public int stars = 0;
+    public int starsToUnlock = 0;
 }

@@ -45,6 +45,8 @@ public class LevelSelector : MonoBehaviour
 
     private void FillWorldsLevels()
     {
+        Player playerData = dataController.GetPlayer();
+
         int levelIndex = 0;
         foreach (Transform world in Worlds.transform)
         {
@@ -60,14 +62,16 @@ public class LevelSelector : MonoBehaviour
 
                 int starIndex = 0;
                 int numberOfStars = levelData.stars;
-                foreach(Transform Star in starsContainer.transform)
+                foreach (Transform Star in starsContainer.transform)
                 {
-                    if(starIndex > numberOfStars - 1)
+                    if (starIndex > numberOfStars - 1)
                         Star.gameObject.GetComponent<Image>().sprite = StarEmpty;
                     else
                         Star.gameObject.GetComponent<Image>().sprite = StarWon;
                     starIndex++;
                 }
+
+                levelData.locked = playerData.numberOfStars >= levelData.starsToUnlock ? false : true;
 
                 lockGameObject.SetActive(levelData.locked);
                 numberGameObject.SetActive(!levelData.locked);
