@@ -8904,6 +8904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Worlds: {fileID: 1256674767}
+  StarWon: {fileID: 21300000, guid: d5ced0964d7d4c14ba3edf96300d8de7, type: 3}
+  StarEmpty: {fileID: 21300000, guid: 7dd1b2bd034528943a2bc58f01fb2517, type: 3}
 --- !u!114 &362077550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8916,6 +8918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsText: {fileID: 4900000, guid: 3c2096daeec13d142b498f5b750e4c0e, type: 3}
+  playerText: {fileID: 4900000, guid: 05d27de4d0e47844ab984b95b04153e1, type: 3}
 --- !u!1 &368764616
 GameObject:
   m_ObjectHideFlags: 0
@@ -12511,7 +12514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 527696629}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14558,7 +14561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611354007}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17249,7 +17252,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1460653997}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20287,7 +20290,7 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1460653997}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21175,7 +21178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 862455589}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24097,7 +24100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 991494755}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28143,7 +28146,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1917931816}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29150,7 +29153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230221457}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33255,7 +33258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423012270}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34169,8 +34172,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2004072674}
-  - {fileID: 704952413}
   - {fileID: 836751439}
+  - {fileID: 704952413}
   - {fileID: 611354007}
   m_Father: {fileID: 578432725}
   m_RootOrder: 1
@@ -34540,7 +34543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486079345}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36112,7 +36115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559569922}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44593,8 +44596,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 19417459}
-  - {fileID: 1177422320}
   - {fileID: 2086988066}
+  - {fileID: 1177422320}
   - {fileID: 991494755}
   m_Father: {fileID: 578432725}
   m_RootOrder: 2
@@ -44613,7 +44616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1923468243}
   m_Layer: 0
-  m_Name: Stars
+  m_Name: StarsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48467,7 +48470,7 @@ GameObject:
   - component: {fileID: 2086988068}
   - component: {fileID: 2086988067}
   m_Layer: 0
-  m_Name: Lock (1)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48484,7 +48487,7 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1917931816}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

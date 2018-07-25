@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsText: {fileID: 4900000, guid: 3c2096daeec13d142b498f5b750e4c0e, type: 3}
+  playerText: {fileID: 4900000, guid: 05d27de4d0e47844ab984b95b04153e1, type: 3}
 --- !u!1001 &573815715
 Prefab:
   m_ObjectHideFlags: 0

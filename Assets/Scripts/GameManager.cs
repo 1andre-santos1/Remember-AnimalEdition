@@ -20,12 +20,13 @@ public class GameManager : MonoBehaviour
     private DataController dataController;
     private LevelManager levelManager;
 
-    private void Awake()
+    private void Start()
     {
+        uimanager = GameObject.FindObjectOfType<UIManager>();
         dataController = GetComponent<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
 
-        Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex()-1];
+        Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1];
 
         NumberOfCards = level.numberOfCards;
         Bar_AutoTimeToDecrease = level.bar_AutoTimeToDecrease;
@@ -33,11 +34,6 @@ public class GameManager : MonoBehaviour
         Bar_MatchedCardIncrement = level.bar_MatchedCardIncrement;
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
-    }
-
-    private void Start()
-    {
-        uimanager = GameObject.FindObjectOfType<UIManager>();
     }
 
     public void LoseGame()
@@ -66,6 +62,19 @@ public class GameManager : MonoBehaviour
         uimanager.UpdatePanelWinTriesText(""+Tries);
         int numberOfStars = uimanager.GetStarsBasedOnBar();
         uimanager.UpdateStars(numberOfStars);
+
+        //get stars number for this level
+        int previousLevelStars = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars;
+        int starsDifference = numberOfStars - previousLevelStars;
+
+        //escreve estrelas para nivel
+        dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars += starsDifference;
+        dataController.WriteLevelsData();
+
+        //escreve estrelas para player
+        dataController.IncrementPlayerStars(starsDifference);
+        dataController.WritePlayerData();
+
         uimanager.ShowPanelWinMenu();
         GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
     }
