@@ -49,7 +49,7 @@ public class LevelSelector : MonoBehaviour
     {
         Player playerData = dataController.GetPlayer();
 
-        TextStarsNumber.GetComponent<Text>().text = ""+playerData.numberOfStars;
+        TextStarsNumber.GetComponent<Text>().text = "" + playerData.numberOfStars;
 
         int levelIndex = 0;
         foreach (Transform world in Worlds.transform)
@@ -60,25 +60,40 @@ public class LevelSelector : MonoBehaviour
             {
                 Level levelData = dataController.GetLevels()[levelIndex];
 
-                GameObject lockGameObject = level.Find("Lock").gameObject;
-                GameObject numberGameObject = level.Find("Number").gameObject;
-                GameObject starsContainer = level.Find("StarsContainer").gameObject;
-
-                int starIndex = 0;
-                int numberOfStars = levelData.stars;
-                foreach (Transform Star in starsContainer.transform)
-                {
-                    if (starIndex > numberOfStars - 1)
-                        Star.gameObject.GetComponent<Image>().sprite = StarEmpty;
-                    else
-                        Star.gameObject.GetComponent<Image>().sprite = StarWon;
-                    starIndex++;
-                }
-
                 levelData.locked = playerData.numberOfStars >= levelData.starsToUnlock ? false : true;
 
-                lockGameObject.SetActive(levelData.locked);
-                numberGameObject.SetActive(!levelData.locked);
+                GameObject LockedContainer = level.Find("Locked").gameObject;
+                GameObject UnlockedContainer = level.Find("Unlocked").gameObject;
+
+                if (levelData.locked)
+                {
+                    LockedContainer.SetActive(true);
+                    UnlockedContainer.SetActive(false);
+
+                    int starsLeftToUnlockLevel = levelData.starsToUnlock - playerData.numberOfStars;
+                    LockedContainer.transform.Find("Text").GetComponent<Text>().text = "" + starsLeftToUnlockLevel;
+                }
+                else
+                {
+                    LockedContainer.SetActive(false);
+                    UnlockedContainer.SetActive(true);
+
+                    GameObject textLevelNumber = UnlockedContainer.transform.Find("Number").gameObject;
+                    textLevelNumber.GetComponent<Text>().text = "" + (levelIndex + 1);
+
+                    GameObject starsContainer = UnlockedContainer.transform.Find("StarsContainer").gameObject;
+
+                    int starIndex = 0;
+                    int numberOfStars = levelData.stars;
+                    foreach (Transform Star in starsContainer.transform)
+                    {
+                        if (starIndex > numberOfStars - 1)
+                            Star.gameObject.GetComponent<Image>().sprite = StarEmpty;
+                        else
+                            Star.gameObject.GetComponent<Image>().sprite = StarWon;
+                        starIndex++;
+                    }
+                }
 
                 levelIndex++;
             }

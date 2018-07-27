@@ -27,7 +27,6 @@ public class DataController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Load json data from files");
         levels = JsonUtility.FromJson<Levels>((Resources.Load("Levels") as TextAsset).text);
         player = JsonUtility.FromJson<Player>((Resources.Load("Player") as TextAsset).text);
 
@@ -36,8 +35,6 @@ public class DataController : MonoBehaviour
 
     public void LoadData()
     {
-        Debug.Log("Load Data from Player Prefs");
-
         string playerData = PlayerPrefs.GetString("Player");
         player = JsonUtility.FromJson<Player>(playerData);
 
@@ -47,8 +44,6 @@ public class DataController : MonoBehaviour
 
     public void WriteData()
     {
-        Debug.Log("Write Data to Player Prefs");
-
         WriteLevelsData();
         WritePlayerData();
     }
