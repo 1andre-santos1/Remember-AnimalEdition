@@ -1366,7 +1366,6 @@ GameObject:
   m_Component:
   - component: {fileID: 476492349}
   - component: {fileID: 476492350}
-  - component: {fileID: 476492351}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1406,19 +1405,6 @@ MonoBehaviour:
   Bar_FailedMatchDecrement: 0
   Probability_CardsWithSameColor: 0
   isGameActive: 0
---- !u!114 &476492351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 476492348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d4e8dd811f7f84e938253d87405438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelsText: {fileID: 4900000, guid: 3c2096daeec13d142b498f5b750e4c0e, type: 3}
-  playerText: {fileID: 4900000, guid: 05d27de4d0e47844ab984b95b04153e1, type: 3}
 --- !u!1001 &573815715
 Prefab:
   m_ObjectHideFlags: 0

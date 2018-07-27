@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uimanager = GameObject.FindObjectOfType<UIManager>();
-        dataController = GetComponent<DataController>();
+        dataController = GameObject.FindObjectOfType<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
 
         Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1];
@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame()
     {
+        dataController.LoadData();
+
         uimanager.UpdatePanelWinTriesText(""+Tries);
         int numberOfStars = uimanager.GetStarsBasedOnBar();
         uimanager.UpdateStars(numberOfStars);
@@ -69,11 +71,11 @@ public class GameManager : MonoBehaviour
 
         //escreve estrelas para nivel
         dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars += starsDifference;
-        dataController.WriteLevelsData();
 
         //escreve estrelas para player
         dataController.IncrementPlayerStars(starsDifference);
-        dataController.WritePlayerData();
+
+        dataController.WriteData();
 
         uimanager.ShowPanelWinMenu();
         GameObject.FindObjectOfType<SoundManager>().PlayWinSound();

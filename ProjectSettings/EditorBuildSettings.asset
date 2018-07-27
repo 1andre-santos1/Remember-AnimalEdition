@@ -11,6 +11,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Monkey_01.unity
     guid: 257280ef9d9ab074c8bf443668cdc3b4
-  - enabled: 1
-    path: Assets/Scenes/Monkey_02.unity
-    guid: fa6f41f474c76c645890148b35b43d44

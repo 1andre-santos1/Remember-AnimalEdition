@@ -5,56 +5,64 @@ using System.IO;
 
 public class DataController : MonoBehaviour
 {
-    private string levelsFile = "/Data/Levels.json";
-    private string playerFile = "/Data/Player.json";
-
-    [SerializeField] private TextAsset levelsText;
-    [SerializeField] private TextAsset playerText;
+    private TextAsset levelsText;
+    private TextAsset playerText;
 
     private Levels levels;
     private Player player;
 
+    public static DataController i;
+
     // Use this for initialization
     void Awake()
     {
-        ReadData();
+        if (!i)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
     }
 
-    public void ReadData()
+    private void Start()
     {
-        string levelsContent = levelsText.text;
-        levels = JsonUtility.FromJson<Levels>(levelsContent);
+        Debug.Log("Load json data from files");
+        levels = JsonUtility.FromJson<Levels>((Resources.Load("Levels") as TextAsset).text);
+        player = JsonUtility.FromJson<Player>((Resources.Load("Player") as TextAsset).text);
 
-        string playerContent = playerText.text;
-        player = JsonUtility.FromJson<Player>(playerContent);
+        WriteData();
     }
+
+    public void LoadData()
+    {
+        Debug.Log("Load Data from Player Prefs");
+
+        string playerData = PlayerPrefs.GetString("Player");
+        player = JsonUtility.FromJson<Player>(playerData);
+
+        string levelsData = PlayerPrefs.GetString("Levels");
+        levels = JsonUtility.FromJson<Levels>(levelsData);
+    }
+
     public void WriteData()
     {
-        //WriteLevelsData();
+        Debug.Log("Write Data to Player Prefs");
+
+        WriteLevelsData();
         WritePlayerData();
     }
     public void WriteLevelsData()
     {
-        string str = "{\n\"levels\":[\n";
-
-        for (int i = 0; i < levels.levels.Length - 1; i++)
-        {
-            str += JsonUtility.ToJson(levels.levels[i], true);
-            str += ",\n";
-        }
-
-        str += JsonUtility.ToJson(levels.levels[levels.levels.Length - 1], true);
-        str += "\n]\n}";
-
-        string filePath = Application.dataPath + "/Data/Levels.json";
-        File.WriteAllText(filePath, str);
+        string jsonData = JsonUtility.ToJson(levels);
+        PlayerPrefs.SetString("Levels", jsonData);
+        PlayerPrefs.Save();
     }
     public void WritePlayerData()
     {
-        string str = JsonUtility.ToJson(player,true);
-
-        string filePath = Application.dataPath + playerFile;
-        File.WriteAllText(filePath, str);
+        string jsonData = JsonUtility.ToJson(player);
+        PlayerPrefs.SetString("Player", jsonData);
+        PlayerPrefs.Save();
     }
 
     public Level[] GetLevels()

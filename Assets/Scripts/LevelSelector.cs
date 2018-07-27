@@ -16,8 +16,9 @@ public class LevelSelector : MonoBehaviour
 
     private void Start()
     {
-        dataController = GetComponent<DataController>();
+        dataController = GameObject.FindObjectOfType<DataController>();
 
+        dataController.LoadData();
         FillWorldsLevels();
     }
 
