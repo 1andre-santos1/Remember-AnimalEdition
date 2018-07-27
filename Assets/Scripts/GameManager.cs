@@ -68,6 +68,13 @@ public class GameManager : MonoBehaviour
         int previousLevelStars = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars;
         int starsDifference = numberOfStars - previousLevelStars;
 
+        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
+
+        uimanager.ShowPanelWinMenu();
+
+        if (previousLevelStars >= numberOfStars)
+            return;
+
         //escreve estrelas para nivel
         dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars += starsDifference;
 
@@ -75,8 +82,5 @@ public class GameManager : MonoBehaviour
         dataController.IncrementPlayerStars(starsDifference);
 
         dataController.WriteData();
-
-        uimanager.ShowPanelWinMenu();
-        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
     }
 }

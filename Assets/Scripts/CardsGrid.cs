@@ -106,6 +106,7 @@ public class CardsGrid : MonoBehaviour
                         MatchedCards++;
                         if (MatchedCards == ChildCards.Length)
                         {
+                            gameManager.IncrementTimeLimit();
                             gameManager.isGameActive = false;
                             gameManager.WinGame();
                         }
