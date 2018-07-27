@@ -8,6 +8,7 @@ public class LevelSelector : MonoBehaviour
     public GameObject Worlds;
     public Sprite StarWon;
     public Sprite StarEmpty;
+    public GameObject TextStarsNumber;
 
     private int worldIndex = 0;
     private int maxWorldIndex = 2;
@@ -47,6 +48,8 @@ public class LevelSelector : MonoBehaviour
     private void FillWorldsLevels()
     {
         Player playerData = dataController.GetPlayer();
+
+        TextStarsNumber.GetComponent<Text>().text = ""+playerData.numberOfStars;
 
         int levelIndex = 0;
         foreach (Transform world in Worlds.transform)
