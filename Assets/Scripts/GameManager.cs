@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int Tries = 0;
+    public float Bar_AutoTimeToDecrease = 0.2f;
 
     public int NumberOfCards;
-    public float Bar_AutoTimeToDecrease;
     public float Bar_AutoAmountToDecrease;
     public float Bar_MatchedCardIncrement;
     public float Bar_FailedMatchDecrement;
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
         Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1];
 
         NumberOfCards = level.numberOfCards;
-        Bar_AutoTimeToDecrease = level.bar_AutoTimeToDecrease;
         Bar_AutoAmountToDecrease = level.bar_AutoAmountToDecrease;
         Bar_MatchedCardIncrement = level.bar_MatchedCardIncrement;
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;

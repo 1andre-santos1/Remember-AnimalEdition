@@ -1398,8 +1398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tries: 0
+  Bar_AutoTimeToDecrease: 0.2
   NumberOfCards: 0
-  Bar_AutoTimeToDecrease: 0
   Bar_AutoAmountToDecrease: 0
   Bar_MatchedCardIncrement: 0
   Bar_FailedMatchDecrement: 0
