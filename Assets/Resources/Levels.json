@@ -1,40 +1,121 @@
 {
-    "levels": [
-        {
-            "host": "monkey",
-            "index": 1,
-            "numberOfCards": 6,
-            "bar_AutoAmountToDecrease": 2,
-            "bar_MatchedCardIncrement": 100,
-            "bar_FailedMatchDecrement": 50,
-            "probability_CardsWithSameColor": 2,
-            "locked": false,
-            "stars": 0,
-            "starsToUnlock": 0
-        },
-        {
-            "host": "monkey",
-            "index": 2,
-            "numberOfCards": 6,
-            "bar_AutoAmountToDecrease": 2,
-            "bar_MatchedCardIncrement": 80,
-            "bar_FailedMatchDecrement": 50,
-            "probability_CardsWithSameColor": 2,
-            "locked": true,
-            "stars": 0,
-            "starsToUnlock": 1
-        },
-        {
-            "host": "monkey",
-            "index": 3,
-            "numberOfCards": 6,
-            "bar_AutoAmountToDecrease": 4,
-            "bar_MatchedCardIncrement": 60,
-            "bar_FailedMatchDecrement": 50,
-            "probability_CardsWithSameColor": 2,
-            "locked": true,
-            "stars": 0,
-            "starsToUnlock": 2
-        }
-    ]
+  "levels": [
+    {
+      "host": "monkey",
+      "index": 1,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 2,
+      "bar_MatchedCardIncrement": 100,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2,
+      "initialDelay": 10,
+      "locked": false,
+      "stars": 0,
+      "starsToUnlock": 0
+    },
+    {
+      "host": "monkey",
+      "index": 2,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 2,
+      "bar_MatchedCardIncrement": 80,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 1
+    },
+    {
+      "host": "monkey",
+      "index": 3,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 4,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 2
+    },
+    {
+      "host": "monkey",
+      "index": 4,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 4,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 3,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 4
+    },
+    {
+      "host": "monkey",
+      "index": 5,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 5,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 4,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 6
+    },
+    {
+      "host": "monkey",
+      "index": 6,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 5,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 6,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 8
+    },
+    {
+      "host": "monkey",
+      "index": 7,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 6,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 10,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 10
+    },
+    {
+      "host": "monkey",
+      "index": 8,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 8,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 10,
+      "initialDelay": 3,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 12
+    },
+    {
+      "host": "monkey",
+      "index": 9,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 10,
+      "bar_MatchedCardIncrement": 50,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 15,
+      "initialDelay": 3,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 14
+    }
+  ]
 }

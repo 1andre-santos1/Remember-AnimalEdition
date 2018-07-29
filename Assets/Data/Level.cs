@@ -13,6 +13,7 @@ public class Level
     public int bar_MatchedCardIncrement = 0;
     public int bar_FailedMatchDecrement = 0;
     public int probability_CardsWithSameColor = 0;
+    public int initialDelay = 0;
     public bool locked = true;
     public int stars = 0;
     public int starsToUnlock = 0;

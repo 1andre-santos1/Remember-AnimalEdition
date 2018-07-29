@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float Bar_MatchedCardIncrement;
     public float Bar_FailedMatchDecrement;
     public int Probability_CardsWithSameColor;
+    public float InitialDelay;
 
     public bool isGameActive = false;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         Bar_MatchedCardIncrement = level.bar_MatchedCardIncrement;
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
+        InitialDelay = level.initialDelay;
     }
 
     public void LoseGame()
@@ -54,7 +56,6 @@ public class GameManager : MonoBehaviour
     public void IncreaseTries()
     {
         Tries++;
-        uimanager.UpdateTries("" + Tries);
     }
     public void WinGame()
     {

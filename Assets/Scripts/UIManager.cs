@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject PanelLoseMenu;
-    public GameObject TriesText;
     public GameObject StarsBar;
 
     public GameObject PanelWinMenu;
@@ -78,10 +77,7 @@ public class UIManager : MonoBehaviour
         if (StarsBar.GetComponent<RectTransform>().offsetMin.x >= 594f)
             StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(594f, StarsBar.GetComponent<RectTransform>().offsetMin.y); ;
     }
-    public void UpdateTries(string value)
-    {
-        TriesText.GetComponent<Text>().text = value;
-    }
+
     public void UpdatePanelWinTriesText(string value)
     {
         PanelWin_TriesText.GetComponent<Text>().text = value;

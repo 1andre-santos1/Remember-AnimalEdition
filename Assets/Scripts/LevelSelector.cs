@@ -9,6 +9,7 @@ public class LevelSelector : MonoBehaviour
     public Sprite StarWon;
     public Sprite StarEmpty;
     public GameObject TextStarsNumber;
+    public GameObject LevelPrefab;
 
     private int worldIndex = 0;
     private int maxWorldIndex = 2;
@@ -52,25 +53,46 @@ public class LevelSelector : MonoBehaviour
         TextStarsNumber.GetComponent<Text>().text = "" + playerData.numberOfStars;
 
         int levelIndex = 0;
+        Level[] DataControllerLevels = dataController.GetLevels();
         foreach (Transform world in Worlds.transform)
         {
             GameObject LevelsContainer = world.Find("LevelsContainer").gameObject;
 
-            foreach (Transform level in LevelsContainer.transform)
+            List<Level> worldLevels = new List<Level>();
+            for (int i = levelIndex; i < levelIndex + 9; i++)
             {
-                Level levelData = dataController.GetLevels()[levelIndex];
+                if (i >= DataControllerLevels.Length)
+                    break;
+                worldLevels.Add(DataControllerLevels[i]);
+            }
 
-                levelData.locked = playerData.numberOfStars >= levelData.starsToUnlock ? false : true;
+            Debug.Log(worldLevels.Count);
 
-                GameObject LockedContainer = level.Find("Locked").gameObject;
-                GameObject UnlockedContainer = level.Find("Unlocked").gameObject;
+            int row = 0;
+            int col = 0;
+            int startX = -20;
+            int marginX = 135;
+            foreach (var level in worldLevels)
+            {
+                GameObject levelP = Instantiate(LevelPrefab) as GameObject;
+                levelP.transform.parent = LevelsContainer.transform;
 
-                if (levelData.locked)
+                int posY = (row == 0) ? 20 : (row == 1) ? -120 : -260;
+                levelP.GetComponent<RectTransform>().localPosition = new Vector2(startX+(marginX*col),posY);
+                levelP.GetComponent<RectTransform>().localScale = new Vector2(1f,1f);
+
+                level.locked = playerData.numberOfStars >= level.starsToUnlock ? false : true;
+
+                GameObject LockedContainer = levelP.transform.Find("Locked").gameObject;
+                GameObject UnlockedContainer = levelP.transform.Find("Unlocked").gameObject;
+                UnlockedContainer.GetComponent<Button>().onClick.AddListener(delegate { GameObject.FindObjectOfType<LevelManager>().LoadScene(1); });
+
+                if (level.locked)
                 {
                     LockedContainer.SetActive(true);
                     UnlockedContainer.SetActive(false);
 
-                    int starsLeftToUnlockLevel = levelData.starsToUnlock - playerData.numberOfStars;
+                    int starsLeftToUnlockLevel = level.starsToUnlock - playerData.numberOfStars;
                     LockedContainer.transform.Find("Text").GetComponent<Text>().text = "" + starsLeftToUnlockLevel;
                 }
                 else
@@ -84,7 +106,7 @@ public class LevelSelector : MonoBehaviour
                     GameObject starsContainer = UnlockedContainer.transform.Find("StarsContainer").gameObject;
 
                     int starIndex = 0;
-                    int numberOfStars = levelData.stars;
+                    int numberOfStars = level.stars;
                     foreach (Transform Star in starsContainer.transform)
                     {
                         if (starIndex > numberOfStars - 1)
@@ -96,6 +118,12 @@ public class LevelSelector : MonoBehaviour
                 }
 
                 levelIndex++;
+                col++;
+                if(col > 2)
+                {
+                    col = 0;
+                    row++;
+                }
             }
         }
     }

@@ -75,7 +75,7 @@ public class CardsGrid : MonoBehaviour
 
     IEnumerator BeginCardDelay()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(gameManager.InitialDelay);
         foreach (var card in ChildCards)
         {
             card.GetComponent<Animator>().enabled = true;
