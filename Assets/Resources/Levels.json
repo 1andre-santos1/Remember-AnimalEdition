@@ -8,7 +8,7 @@
       "bar_MatchedCardIncrement": 100,
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 2,
-      "initialDelay": 10,
+      "initialDelay": 5,
       "locked": false,
       "stars": 0,
       "starsToUnlock": 0

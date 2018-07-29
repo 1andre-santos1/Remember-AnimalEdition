@@ -66,8 +66,6 @@ public class LevelSelector : MonoBehaviour
                 worldLevels.Add(DataControllerLevels[i]);
             }
 
-            Debug.Log(worldLevels.Count);
-
             int row = 0;
             int col = 0;
             int startX = -20;

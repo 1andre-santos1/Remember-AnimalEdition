@@ -7,6 +7,7 @@ public class CardsGrid : MonoBehaviour
     public int CardsTurned;
     public int MatchedCards;
     public Sprite[] CardsSprite;
+    public GameObject CardPrefab;
 
     private GameObject[] ChildCards;
     private List<int> idsTurned;
@@ -17,11 +18,11 @@ public class CardsGrid : MonoBehaviour
 
     public void Start()
     {
-        ChildCards = GameObject.FindGameObjectsWithTag("Card");
-
         gameManager = GameObject.FindObjectOfType<GameManager>();
         soundManager = GameObject.FindObjectOfType<SoundManager>();
         uiManager = GameObject.FindObjectOfType<UIManager>();
+
+        InstantiateCards();
 
         CardsTurned = 0;
         MatchedCards = 0;
@@ -29,6 +30,37 @@ public class CardsGrid : MonoBehaviour
         FillGridWithCards();
 
         StartCoroutine("BeginCardDelay");
+    }
+
+    public void InstantiateCards()
+    {
+        int numberOfCards = gameManager.NumberOfCards;
+
+        int numberOfRows = numberOfCards / 2;
+        int numberOfCols = Mathf.FloorToInt(numberOfCards / 3);
+
+        float posX = 0f;
+        float posY = 0f;
+
+        float cardSize = Mathf.Sqrt(6f/numberOfCards);
+        float cardMargin = 0.2f;
+
+        for (int row = 0; row < numberOfRows; row++)
+        {
+            posX = 0;
+            for(int col = 0; col < numberOfCols; col++)
+            {
+                GameObject cardP = Instantiate(CardPrefab) as GameObject;
+                cardP.transform.localPosition = new Vector3(posX + cardMargin, posY + cardMargin);
+                cardP.transform.localScale = new Vector3(cardSize, cardSize,1f);
+                cardP.transform.SetParent(transform);
+                posX += 1.8f;
+            }
+            posY -= 1.8f;
+        }
+
+        ChildCards = GameObject.FindGameObjectsWithTag("Card");
+        Debug.Log(ChildCards.Length);
     }
 
     public void FillGridWithCards()
