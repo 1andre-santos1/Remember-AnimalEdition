@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
         Level level = dataController.GetLevels()[dataController.levelIndex];
 
-        NumberOfCards = level.numberOfCards;
+        NumberOfCards = 32;
         Bar_AutoAmountToDecrease = level.bar_AutoAmountToDecrease;
         Bar_MatchedCardIncrement = level.bar_MatchedCardIncrement;
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;

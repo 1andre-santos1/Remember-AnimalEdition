@@ -90,7 +90,7 @@ public class LevelSelector : MonoBehaviour
                     LockedContainer.SetActive(true);
                     UnlockedContainer.SetActive(false);
 
-                    int starsLeftToUnlockLevel = level.starsToUnlock - playerData.numberOfStars;
+                    int starsLeftToUnlockLevel = level.starsToUnlock;
                     LockedContainer.transform.Find("Text").GetComponent<Text>().text = "" + starsLeftToUnlockLevel;
                 }
                 else

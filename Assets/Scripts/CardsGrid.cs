@@ -39,24 +39,39 @@ public class CardsGrid : MonoBehaviour
         int numberOfRows = numberOfCards / 2;
         int numberOfCols = Mathf.FloorToInt(numberOfCards / 3);
 
-        float posX = 0f;
-        float posY = 0f;
+        float cardSize = Mathf.Sqrt(5f/numberOfCards);
+        float cardMargin = 0.15f;
 
-        float cardSize = Mathf.Sqrt(6f/numberOfCards);
-        float cardMargin = 0.2f;
+        float posX = 0f - cardSize/2f;
+        float posY = 0f + cardSize/2f;
+        float cardWidth = -1f;
+        float cardHeight = -1f;
 
-        for (int row = 0; row < numberOfRows; row++)
+        int cardIndex = 0;
+        for (int col = 0; col < numberOfCols; col++)
         {
-            posX = 0;
-            for(int col = 0; col < numberOfCols; col++)
+            posY = 0f + cardSize / 2f;
+            for(int row = 0; row < numberOfRows; row++)
             {
                 GameObject cardP = Instantiate(CardPrefab) as GameObject;
-                cardP.transform.localPosition = new Vector3(posX + cardMargin, posY + cardMargin);
+                cardP.transform.localPosition = new Vector3(posX, posY);
                 cardP.transform.localScale = new Vector3(cardSize, cardSize,1f);
                 cardP.transform.SetParent(transform);
-                posX += 1.8f;
+                if(cardWidth < 0f && cardHeight < 0f)
+                {
+                    cardWidth = cardP.GetComponent<BoxCollider2D>().bounds.size.x;
+                    cardHeight = cardP.GetComponent<BoxCollider2D>().bounds.size.y;
+                }
+
+                posY -= cardHeight + cardMargin;
+                cardIndex++;
+
+                if (cardIndex >= numberOfCards || posY < -6.4f)
+                    break;
             }
-            posY -= 1.8f;
+            if (cardIndex >= numberOfCards || posX > 3f)
+                break;
+            posX += cardWidth + cardMargin;
         }
 
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
