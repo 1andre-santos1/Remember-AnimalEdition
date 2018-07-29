@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float Bar_MatchedCardIncrement;
     public float Bar_FailedMatchDecrement;
     public int Probability_CardsWithSameColor;
-    public float InitialDelay;
+    public int InitialDelay;
 
     public bool isGameActive = false;
 
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         dataController = GameObject.FindObjectOfType<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
 
-        Level level = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1];
+        Level level = dataController.GetLevels()[dataController.levelIndex];
 
         NumberOfCards = level.numberOfCards;
         Bar_AutoAmountToDecrease = level.bar_AutoAmountToDecrease;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         uimanager.UpdateStars(numberOfStars);
 
         //get stars number for this level
-        int previousLevelStars = dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars;
+        int previousLevelStars = dataController.GetLevels()[dataController.levelIndex].stars;
         int starsDifference = numberOfStars - previousLevelStars;
 
         GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
             return;
 
         //escreve estrelas para nivel
-        dataController.GetLevels()[levelManager.GetCurrentSceneIndex() - 1].stars += starsDifference;
+        dataController.GetLevels()[dataController.levelIndex].stars += starsDifference;
 
         //escreve estrelas para player
         dataController.IncrementPlayerStars(starsDifference);

@@ -75,7 +75,7 @@ public class LevelSelector : MonoBehaviour
             foreach (var level in worldLevels)
             {
                 GameObject levelP = Instantiate(LevelPrefab) as GameObject;
-                levelP.transform.parent = LevelsContainer.transform;
+                levelP.transform.SetParent(LevelsContainer.transform);
 
                 int posY = (row == 0) ? 20 : (row == 1) ? -120 : -260;
                 levelP.GetComponent<RectTransform>().localPosition = new Vector2(startX+(marginX*col),posY);
@@ -85,7 +85,7 @@ public class LevelSelector : MonoBehaviour
 
                 GameObject LockedContainer = levelP.transform.Find("Locked").gameObject;
                 GameObject UnlockedContainer = levelP.transform.Find("Unlocked").gameObject;
-                UnlockedContainer.GetComponent<Button>().onClick.AddListener(delegate { GameObject.FindObjectOfType<LevelManager>().LoadScene(1); });
+                UnlockedContainer.GetComponent<Button>().onClick.AddListener(delegate { GameObject.FindObjectOfType<LevelManager>().LoadGame(level.index); });
 
                 if (level.locked)
                 {

@@ -2,7 +2,7 @@
   "levels": [
     {
       "host": "monkey",
-      "index": 1,
+      "index": 0,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 2,
       "bar_MatchedCardIncrement": 100,
@@ -15,23 +15,10 @@
     },
     {
       "host": "monkey",
-      "index": 2,
+      "index": 1,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 2,
       "bar_MatchedCardIncrement": 80,
-      "bar_FailedMatchDecrement": 50,
-      "probability_CardsWithSameColor": 2,
-      "initialDelay": 5,
-      "locked": true,
-      "stars": 0,
-      "starsToUnlock": 1
-    },
-    {
-      "host": "monkey",
-      "index": 3,
-      "numberOfCards": 6,
-      "bar_AutoAmountToDecrease": 4,
-      "bar_MatchedCardIncrement": 60,
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 2,
       "initialDelay": 5,
@@ -41,7 +28,20 @@
     },
     {
       "host": "monkey",
-      "index": 4,
+      "index": 2,
+      "numberOfCards": 6,
+      "bar_AutoAmountToDecrease": 4,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 2,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 4
+    },
+    {
+      "host": "monkey",
+      "index": 3,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 4,
       "bar_MatchedCardIncrement": 60,
@@ -50,11 +50,11 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 4
+      "starsToUnlock": 6
     },
     {
       "host": "monkey",
-      "index": 5,
+      "index": 4,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 5,
       "bar_MatchedCardIncrement": 60,
@@ -63,11 +63,11 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 6
+      "starsToUnlock": 8
     },
     {
       "host": "monkey",
-      "index": 6,
+      "index": 5,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 5,
       "bar_MatchedCardIncrement": 60,
@@ -76,11 +76,11 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 8
+      "starsToUnlock": 10
     },
     {
       "host": "monkey",
-      "index": 7,
+      "index": 6,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 6,
       "bar_MatchedCardIncrement": 60,
@@ -89,11 +89,11 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 10
+      "starsToUnlock": 12
     },
     {
       "host": "monkey",
-      "index": 8,
+      "index": 7,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 8,
       "bar_MatchedCardIncrement": 60,
@@ -102,11 +102,11 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 12
+      "starsToUnlock": 14
     },
     {
       "host": "monkey",
-      "index": 9,
+      "index": 8,
       "numberOfCards": 6,
       "bar_AutoAmountToDecrease": 10,
       "bar_MatchedCardIncrement": 50,
@@ -115,7 +115,124 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 14
+      "starsToUnlock": 16
+    },
+    {
+      "host": "cow",
+      "index": 9,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 6,
+      "bar_MatchedCardIncrement": 80,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 10,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 20
+    },
+    {
+      "host": "cow",
+      "index": 10,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 6,
+      "bar_MatchedCardIncrement": 70,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 12,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 22
+    },
+    {
+      "host": "cow",
+      "index": 11,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 8,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 50,
+      "probability_CardsWithSameColor": 15,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 24
+    },
+    {
+      "host": "cow",
+      "index": 12,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 8,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 15,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 26
+    },
+    {
+      "host": "cow",
+      "index": 13,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 8,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 60,
+      "probability_CardsWithSameColor": 18,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 28
+    },
+    {
+      "host": "cow",
+      "index": 14,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 10,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 70,
+      "probability_CardsWithSameColor": 20,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 30
+    },
+    {
+      "host": "cow",
+      "index": 15,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 12,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 70,
+      "probability_CardsWithSameColor": 20,
+      "initialDelay": 5,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 32
+    },
+    {
+      "host": "cow",
+      "index": 16,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 14,
+      "bar_MatchedCardIncrement": 60,
+      "bar_FailedMatchDecrement": 80,
+      "probability_CardsWithSameColor": 22,
+      "initialDelay": 3,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 34
+    },
+    {
+      "host": "cow",
+      "index": 17,
+      "numberOfCards": 8,
+      "bar_AutoAmountToDecrease": 15,
+      "bar_MatchedCardIncrement": 50,
+      "bar_FailedMatchDecrement": 80,
+      "probability_CardsWithSameColor": 25,
+      "initialDelay": 3,
+      "locked": true,
+      "stars": 0,
+      "starsToUnlock": 36
     }
   ]
 }

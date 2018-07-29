@@ -22,4 +22,9 @@ public class LevelManager : MonoBehaviour
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
+    public void LoadGame(int levelIndex)
+    {
+        GameObject.FindObjectOfType<DataController>().levelIndex = levelIndex;
+        LoadScene("Game");
+    }
 }

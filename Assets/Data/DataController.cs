@@ -5,6 +5,8 @@ using System.IO;
 
 public class DataController : MonoBehaviour
 {
+    public int levelIndex = 0;
+
     private TextAsset levelsText;
     private TextAsset playerText;
 
