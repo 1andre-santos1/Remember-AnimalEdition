@@ -12,6 +12,20 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public static SoundManager i;
+
+    // Use this for initialization
+    void Awake()
+    {
+        if (!i)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();

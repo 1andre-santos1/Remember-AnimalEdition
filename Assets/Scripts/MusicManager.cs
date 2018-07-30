@@ -8,6 +8,20 @@ public class MusicManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public static MusicManager i;
+
+    // Use this for initialization
+    void Awake()
+    {
+        if (!i)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
