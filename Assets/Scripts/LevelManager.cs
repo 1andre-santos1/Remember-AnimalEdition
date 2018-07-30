@@ -27,4 +27,17 @@ public class LevelManager : MonoBehaviour
         GameObject.FindObjectOfType<DataController>().levelIndex = levelIndex;
         LoadScene("Game");
     }
+    public void LoadNextLevel()
+    {
+        DataController dataController = GameObject.FindObjectOfType<DataController>();
+        int currentLevelIndex = dataController.levelIndex;
+        Level[] levels = dataController.GetLevels();
+
+        if (currentLevelIndex + 1 >= levels.Length)
+            return;
+        else if (levels[currentLevelIndex + 1].locked)
+            return;
+        else
+            LoadGame(currentLevelIndex + 1);
+    }
 }

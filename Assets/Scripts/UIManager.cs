@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     public Sprite DarkStar;
     public Sprite Star;
 
+    public GameObject PanelWinGame;
+
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
     private float AmountIncrementBar;
@@ -112,5 +114,14 @@ public class UIManager : MonoBehaviour
             return 2;
         else
             return 1;
+    }
+
+    public void ShowPanelWinGame()
+    {
+        PanelWinGame.SetActive(true);
+    }
+    public void HidePanelWinGame()
+    {
+        PanelWinGame.SetActive(false);
     }
 }

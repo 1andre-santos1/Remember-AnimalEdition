@@ -74,9 +74,6 @@ public class GameManager : MonoBehaviour
         int previousLevelStars = dataController.GetLevels()[dataController.levelIndex].stars;
         int starsDifference = numberOfStars - previousLevelStars;
 
-        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
-
-
         if (previousLevelStars >= numberOfStars)
             return;
 
@@ -105,8 +102,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowUnlocked(List<Level> LevelsUnlocked)
     {
+        GameObject.Find("Grid").SetActive(false);
+
+        uimanager.ShowPanelWinGame();
+
+        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
+
+        yield return new WaitForSeconds(3f);
+
+        uimanager.HidePanelWinGame();
         foreach (var level in LevelsUnlocked)
         {
+            GameObject.FindObjectOfType<SoundManager>().PlayUnlockSound();
+
             GameObject levelP = Instantiate(UnlockedLevel) as GameObject;
             levelP.transform.SetParent(Canvas.transform, false);
 

@@ -155,6 +155,7 @@ public class CardsGrid : MonoBehaviour
                             gameManager.IncrementTimeLimit();
                             gameManager.isGameActive = false;
                             gameManager.WinGame();
+                            return;
                         }
                         if (!card.GetComponent<Card>().isInteractable)
                             continue;

@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip FailedMatchedCard;
     public AudioClip WinSound;
     public AudioClip LoseSound;
+    public AudioClip UnlockSound;
 
     private AudioSource audioSource;
 
@@ -36,6 +37,12 @@ public class SoundManager : MonoBehaviour
     public void PlayLoseSound()
     {
         audioSource.clip = LoseSound;
+        audioSource.Play();
+    }
+
+    public void PlayUnlockSound()
+    {
+        audioSource.clip = UnlockSound;
         audioSource.Play();
     }
 }
