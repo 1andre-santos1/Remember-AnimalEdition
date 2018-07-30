@@ -79,8 +79,6 @@ public class LevelSelector : MonoBehaviour
                 levelP.GetComponent<RectTransform>().localPosition = new Vector2(startX+(marginX*col),posY);
                 levelP.GetComponent<RectTransform>().localScale = new Vector2(1f,1f);
 
-                level.locked = playerData.numberOfStars >= level.starsToUnlock ? false : true;
-
                 GameObject LockedContainer = levelP.transform.Find("Locked").gameObject;
                 GameObject UnlockedContainer = levelP.transform.Find("Unlocked").gameObject;
                 UnlockedContainer.GetComponent<Button>().onClick.AddListener(delegate { GameObject.FindObjectOfType<LevelManager>().LoadGame(level.index); });

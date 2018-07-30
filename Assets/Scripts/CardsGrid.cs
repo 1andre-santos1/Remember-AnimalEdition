@@ -75,7 +75,6 @@ public class CardsGrid : MonoBehaviour
         }
 
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
-        Debug.Log(ChildCards.Length);
     }
 
     public void FillGridWithCards()

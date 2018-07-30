@@ -74,5 +74,7 @@ public class DataController : MonoBehaviour
     public void IncrementPlayerStars(int value)
     {
         player.numberOfStars += value;
+        foreach(var level in levels.levels)
+            level.locked = player.numberOfStars >= level.starsToUnlock ? false : true;
     }
 }
