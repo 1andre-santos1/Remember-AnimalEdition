@@ -23,6 +23,13 @@ public class LevelSelector : MonoBehaviour
         dataController.LoadData();
         FillWorldsLevels();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
     public void NextWorld()
     {

@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public Sprite Star;
 
     public GameObject PanelWinGame;
+    public GameObject PauseMenu;
+    public GameObject SettingsMenu;
 
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
@@ -135,5 +137,28 @@ public class UIManager : MonoBehaviour
     public void LoadNextLevel()
     {
         GameObject.FindObjectOfType<LevelManager>().LoadNextLevel();
+    }
+    public void ShowPauseMenu()
+    {
+        PauseMenu.SetActive(true);
+    }
+    public void HidePauseMenu()
+    {
+        PauseMenu.SetActive(false);
+        
+    }
+    public void ResumeGame()
+    {
+        HidePauseMenu();
+        gameManager.isGameActive = true;
+        StartBarDecreasing();
+    }
+    public void ShowSettingsMenu()
+    {
+        SettingsMenu.SetActive(true);
+    }
+    public void HideSettingsMenu()
+    {
+        SettingsMenu.SetActive(false);
     }
 }

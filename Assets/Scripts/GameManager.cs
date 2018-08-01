@@ -41,6 +41,14 @@ public class GameManager : MonoBehaviour
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
         InitialDelay = level.initialDelay;
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            isGameActive = false;
+            uimanager.ShowPauseMenu();
+        }
+    }
 
     public void LoseGame()
     {
