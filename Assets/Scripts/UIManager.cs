@@ -23,9 +23,11 @@ public class UIManager : MonoBehaviour
     private float AmountIncrementBar;
     private float AmountDecrementBar;
     private GameManager gameManager;
+    private bool isActive = false;
 
-    private void Start()
+    public void StartGame()
     {
+        isActive = true;
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
         TimeBarDecreasing = gameManager.Bar_AutoTimeToDecrease;
@@ -41,6 +43,8 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
+        if (!isActive)
+            return;
         if (!gameManager.isGameActive)
             return;
         if (StarsBar.GetComponent<RectTransform>().offsetMin.x < 47f)

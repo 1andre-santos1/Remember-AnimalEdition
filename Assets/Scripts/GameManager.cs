@@ -26,12 +26,14 @@ public class GameManager : MonoBehaviour
     private DataController dataController;
     private LevelManager levelManager;
 
-    private void Start()
+    public void Start()
     {
-        uimanager = GameObject.FindObjectOfType<UIManager>();
         dataController = GameObject.FindObjectOfType<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
-
+        uimanager = GameObject.FindObjectOfType<UIManager>();
+    }
+    public void StartGame()
+    {
         Level level = dataController.GetLevels()[dataController.levelIndex];
 
         NumberOfCards = level.numberOfCards;
@@ -40,11 +42,16 @@ public class GameManager : MonoBehaviour
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
         InitialDelay = level.initialDelay;
+
+        uimanager.StartGame();
+        GameObject.FindObjectOfType<CardsGrid>().StartGame();
     }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            if (uimanager == null)
+                return;
             isGameActive = false;
             uimanager.ShowPauseMenu();
         }
@@ -142,7 +149,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
             Destroy(levelP);
         }
-
         uimanager.ShowPanelWinMenu();
     }
 }

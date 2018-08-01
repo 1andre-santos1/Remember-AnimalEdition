@@ -15,9 +15,11 @@ public class CardsGrid : MonoBehaviour
     private GameManager gameManager;
     private SoundManager soundManager;
     private UIManager uiManager;
+    private bool isActive = false;
 
-    public void Start()
+    public void StartGame()
     {
+        isActive = true;
         gameManager = GameObject.FindObjectOfType<GameManager>();
         soundManager = GameObject.FindObjectOfType<SoundManager>();
         uiManager = GameObject.FindObjectOfType<UIManager>();
