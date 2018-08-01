@@ -8732,7 +8732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bcc76b9d20383845bbcd0c3baadff45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music: {fileID: 8300000, guid: 0d20fc1c431373145987e9e71df01e3c, type: 3}
+  MenuMusic:
+  - {fileID: 8300000, guid: 0d20fc1c431373145987e9e71df01e3c, type: 3}
+  - {fileID: 8300000, guid: d1f8739f5365a3b40a1f8d942447e528, type: 3}
+  WorldMusic:
+  - {fileID: 8300000, guid: 6d7168b76e6ead144a5a8e7c71806388, type: 3}
+  - {fileID: 8300000, guid: b195485a1880a33468bdb37a8a9c40f1, type: 3}
 --- !u!1 &417166419
 GameObject:
   m_ObjectHideFlags: 0

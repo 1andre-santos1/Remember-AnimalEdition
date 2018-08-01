@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip Music;
+    public AudioClip[] MenuMusic;
+    public AudioClip[] WorldMusic;
 
     private AudioSource audioSource;
 
@@ -24,8 +25,20 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
+        PlayMenuMusic();
+    }
+
+    public void PlayMenuMusic()
+    {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Music;
+        audioSource.clip = MenuMusic[Random.Range(0, MenuMusic.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayWorldMusic(int world)
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = WorldMusic[world];
         audioSource.Play();
     }
 }

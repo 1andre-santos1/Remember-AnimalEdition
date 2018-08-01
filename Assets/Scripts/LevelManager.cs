@@ -61,4 +61,29 @@ public class LevelManager : MonoBehaviour
         else
             LoadGame(currentLevelIndex + 1);
     }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+            GameObject.FindObjectOfType<MusicManager>().PlayMenuMusic();
+        else
+        {
+            DataController dc = GameObject.FindObjectOfType<DataController>();
+            Level l = dc.GetLevels()[dc.levelIndex];
+            if (l.host == "monkey")
+                GameObject.FindObjectOfType<MusicManager>().PlayWorldMusic(0);
+            else if (l.host == "cow")
+                GameObject.FindObjectOfType<MusicManager>().PlayWorldMusic(1);
+        }
+    }
 }
