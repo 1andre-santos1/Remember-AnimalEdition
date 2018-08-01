@@ -51,8 +51,11 @@ public class Card : MonoBehaviour
 
     IEnumerator TurnCard()
     {
-        audioSource.clip = CardTurning;
-        audioSource.Play();
+        if(!GameManager.FindObjectOfType<SoundManager>().gameObject.GetComponent<AudioSource>().mute)
+        {
+            audioSource.clip = CardTurning;
+            audioSource.Play();
+        }
 
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
 
