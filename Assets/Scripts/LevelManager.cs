@@ -5,6 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager i;
+
+    // Use this for initialization
+    void Awake()
+    {
+        if (!i)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        Animator anim = GameObject.Find("Canvas").GetComponent<Animator>();
+        anim.enabled = true;
+        anim.Play("SplashScreen");
+    }
+
     public void LoadScene(string level)
     {
         SceneManager.LoadScene(level);

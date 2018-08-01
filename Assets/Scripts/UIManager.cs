@@ -124,4 +124,16 @@ public class UIManager : MonoBehaviour
     {
         PanelWinGame.SetActive(false);
     }
+    public void LoadMainMenu()
+    {
+        GameObject.FindObjectOfType<LevelManager>().LoadScene(0);
+    }
+    public void RestartLevel()
+    {
+        GameObject.FindObjectOfType<LevelManager>().RestartScene();
+    }
+    public void LoadNextLevel()
+    {
+        GameObject.FindObjectOfType<LevelManager>().LoadNextLevel();
+    }
 }
