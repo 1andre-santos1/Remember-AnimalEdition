@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
         gameManager = GameObject.FindObjectOfType<GameManager>();
         audioSource = GetComponent<AudioSource>();
 
-        isTurned = false;
+        isTurned = true;
         isInteractable = true;
 
         anim.SetBool("canTurn", false);
@@ -29,41 +29,42 @@ public class Card : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!isInteractable || isTurned || !gameManager.isGameActive)
+        if (!isInteractable || !gameManager.isGameActive)
             return;
 
-        isTurned = !isTurned;
+        anim.SetBool("isTurned", false);
         anim.SetBool("canTurn", true);
+
         StartCoroutine("TurnCard");
     }
 
     public void ToggleTurn()
     {
-        if (!isInteractable)
-            return;
-        if (!isTurned)
+        if (!isInteractable || !gameManager.isGameActive)
             return;
 
-        isTurned = !isTurned;
+        anim.SetBool("isTurned", true);
         anim.SetBool("canTurn", true);
+
         StartCoroutine("TurnCard");
     }
 
     IEnumerator TurnCard()
     {
-        if(!GameManager.FindObjectOfType<SoundManager>().gameObject.GetComponent<AudioSource>().mute)
+        if (!GameManager.FindObjectOfType<SoundManager>().gameObject.GetComponent<AudioSource>().mute)
         {
             audioSource.clip = CardTurning;
             audioSource.Play();
         }
 
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length/1.5f);
 
         if (isInteractable)
         {
+            isTurned = anim.GetBool("isTurned");
+
             cardsGrid.UpdateCardsTurned();
 
-            anim.SetBool("isTurned", isTurned);
             anim.SetBool("canTurn", false);
 
             cardsGrid.CheckMatches();

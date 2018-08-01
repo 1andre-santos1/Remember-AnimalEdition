@@ -142,12 +142,13 @@ public class CardsGrid : MonoBehaviour
             gameManager.IncreaseTries();
             foreach (var card in ChildCards)
             {
-                if (card.GetComponent<Card>().isTurned)
+                Card c = card.GetComponent<Card>();
+                if (!c.isTurned)
                 {
-                    if (HowManyCardsAreTurn(card.GetComponent<Card>().id) < 2)
+                    if (HowManyCardsAreTurn(c.id) < 2)
                     {
                         soundManager.PlayFailedMatchedCardSound();
-                        card.GetComponent<Card>().ToggleTurn();
+                        c.ToggleTurn();
                     }
                     else
                     {
@@ -159,10 +160,10 @@ public class CardsGrid : MonoBehaviour
                             gameManager.WinGame();
                             return;
                         }
-                        if (!card.GetComponent<Card>().isInteractable)
+                        if (!c.isInteractable)
                             continue;
                         soundManager.PlayMatchedCardSound();
-                        card.GetComponent<Card>().isInteractable = false;
+                        c.isInteractable = false;
                         ocurredMatching = true;
                     }
                 }
@@ -180,7 +181,7 @@ public class CardsGrid : MonoBehaviour
         int count = 0;
         foreach (var card in ChildCards)
         {
-            if (card.GetComponent<Card>().isTurned && card.GetComponent<Card>().id == id)
+            if (!card.GetComponent<Card>().isTurned && card.GetComponent<Card>().id == id)
             {
                 count++;
             }
@@ -199,7 +200,7 @@ public class CardsGrid : MonoBehaviour
         foreach (var card in ChildCards)
         {
             Card c = card.GetComponent<Card>();
-            if (c.isTurned && c.isInteractable)
+            if (!c.isTurned && c.isInteractable)
             {
                 CardsTurned++;
                 idsTurned.Add(card.GetComponent<Card>().id);

@@ -147,7 +147,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Turn
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101230159318173762}
@@ -173,7 +173,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ToggleTurn
-  m_Speed: 0.6
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101449403467258788}
@@ -208,7 +208,7 @@ AnimatorStateMachine:
     m_Position: {x: 288, y: 228, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102127478419556422}
-    m_Position: {x: 60, y: 180, z: 0}
+    m_Position: {x: 84, y: 192, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
