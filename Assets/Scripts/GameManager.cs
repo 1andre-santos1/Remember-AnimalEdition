@@ -130,6 +130,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         uimanager.HidePanelWinGame();
+        uimanager.HostTalk.transform.parent.transform.parent.gameObject.SetActive(false);
+
         foreach (var level in LevelsUnlocked)
         {
             GameObject.FindObjectOfType<SoundManager>().PlayUnlockSound();

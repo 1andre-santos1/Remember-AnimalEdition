@@ -8,6 +8,12 @@ public class UIManager : MonoBehaviour
     public GameObject PanelLoseMenu;
     public GameObject StarsBar;
 
+    public GameObject HostTalk;
+    public GameObject HostSprite;
+    public GameObject LevelText;
+    public GameObject LevelStarsContainer;
+    public string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!"};
+
     public GameObject PanelWinMenu;
     public GameObject PanelWin_TriesText;
     public GameObject[] PanelWin_Stars;
@@ -34,6 +40,27 @@ public class UIManager : MonoBehaviour
         AmountBarDecreasing = gameManager.Bar_AutoAmountToDecrease;
         AmountIncrementBar = gameManager.Bar_MatchedCardIncrement;
         AmountDecrementBar = gameManager.Bar_FailedMatchDecrement;
+
+        HostTalk.GetComponent<Text>().text = "";
+        LevelText.GetComponent<Text>().text = "Level "+(GameObject.FindObjectOfType<DataController>().levelIndex+1);
+
+        DataController dataController = GameObject.FindObjectOfType<DataController>();
+        Level currentLevel = dataController.GetLevels()[dataController.levelIndex];
+        for (int i = 0; i < currentLevel.stars; i++)
+            LevelStarsContainer.transform.GetChild(i).GetComponent<Image>().sprite = Star;
+
+        if (currentLevel.host == "monkey")
+            HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[0];
+        else if (currentLevel.host == "cow")
+            HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[1];
+    }
+
+    public void MakeHostTalk()
+    {
+        Text t = HostTalk.GetComponent<Text>();
+        string talk = HostTalkStrings[Random.Range(0, HostTalkStrings.Length)];
+
+        t.text = talk;
     }
 
     public void StartBarDecreasing()

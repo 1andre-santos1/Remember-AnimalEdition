@@ -165,6 +165,7 @@ public class CardsGrid : MonoBehaviour
                         soundManager.PlayMatchedCardSound();
                         c.isInteractable = false;
                         ocurredMatching = true;
+                        uiManager.MakeHostTalk();
                     }
                 }
             }
