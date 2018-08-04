@@ -90,7 +90,11 @@ public class GameManager : MonoBehaviour
         int starsDifference = numberOfStars - previousLevelStars;
 
         if (previousLevelStars >= numberOfStars)
+        {
+            StartCoroutine("WinEvent");
+
             return;
+        }
 
         //get all the levels previously unlocked
         List<Level> levelsPreviouslyUnlocked = new List<Level>();
@@ -149,6 +153,20 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
             Destroy(levelP);
         }
+        uimanager.ShowPanelWinMenu();
+    }
+    IEnumerator WinEvent()
+    {
+        GameObject.Find("Grid").SetActive(false);
+
+        uimanager.ShowPanelWinGame();
+
+        GameObject.FindObjectOfType<SoundManager>().PlayWinSound();
+
+        yield return new WaitForSeconds(3f);
+
+        uimanager.HidePanelWinGame();
+
         uimanager.ShowPanelWinMenu();
     }
 }
