@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject Canvas;
     public GameObject UnlockedLevel;
     public Sprite[] HostsSprite;
+    public GameObject ParticleConfetti;
 
     private UIManager uimanager;
     private DataController dataController;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+
         dataController = GameObject.FindObjectOfType<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         uimanager = GameObject.FindObjectOfType<UIManager>();
@@ -79,6 +81,8 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame()
     {
+        Instantiate(ParticleConfetti);
+
         dataController.LoadData();
 
         uimanager.UpdatePanelWinTriesText(""+Tries);

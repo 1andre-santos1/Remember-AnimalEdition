@@ -1788,6 +1788,8 @@ MonoBehaviour:
   HostsSprite:
   - {fileID: 21300000, guid: 4c760faa5f9905b49b5cf9d9d2265b93, type: 3}
   - {fileID: 21300000, guid: d3cfc22caa3344c4bbd1b44e2cc2332c, type: 3}
+  ParticleConfetti: {fileID: 1492942505806960, guid: c76bced4debb167429bfe1ea0d34cd3f,
+    type: 2}
 --- !u!1 &521189727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,7 +2705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859410209
 RectTransform:
   m_ObjectHideFlags: 0
