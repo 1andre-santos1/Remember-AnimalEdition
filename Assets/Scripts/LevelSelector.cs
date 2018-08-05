@@ -11,6 +11,10 @@ public class LevelSelector : MonoBehaviour
     public GameObject TextStarsNumber;
     public GameObject LevelPrefab;
 
+    public GameObject DotsContainer;
+    public Sprite DotSelected;
+    public Sprite DotNonSelected;
+
     private int worldIndex = 0;
     private int maxWorldIndex = 2;
 
@@ -22,7 +26,18 @@ public class LevelSelector : MonoBehaviour
 
         dataController.LoadData();
         FillWorldsLevels();
+        UpdateDots();
     }
+    private void UpdateDots()
+    {
+        int index = 0;
+        foreach(Transform dot in DotsContainer.transform)
+        {
+            dot.GetComponent<Image>().sprite = (index == worldIndex) ? DotSelected : DotNonSelected ;
+            index++;
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -41,6 +56,7 @@ public class LevelSelector : MonoBehaviour
         }
         Worlds.GetComponent<RectTransform>().anchoredPosition = new Vector2(Worlds.GetComponent<RectTransform>().anchoredPosition.x - 550f, Worlds.GetComponent<RectTransform>().anchoredPosition.y);
 
+        UpdateDots();
     }
     public void PreviewWorld()
     {
@@ -51,6 +67,8 @@ public class LevelSelector : MonoBehaviour
             return;
         }
         Worlds.GetComponent<RectTransform>().anchoredPosition = new Vector2(Worlds.GetComponent<RectTransform>().anchoredPosition.x + 550f, Worlds.GetComponent<RectTransform>().anchoredPosition.y);
+
+        UpdateDots();
     }
 
     private void FillWorldsLevels()

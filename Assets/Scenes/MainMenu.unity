@@ -7720,6 +7720,9 @@ MonoBehaviour:
   TextStarsNumber: {fileID: 1322920314}
   LevelPrefab: {fileID: 1912286450811466, guid: 520a9f4a14e9f40478cff2b9a9513596,
     type: 2}
+  DotsContainer: {fileID: 1410821763}
+  DotSelected: {fileID: 21300000, guid: 014858d69ca25744fa639eb03e453f8f, type: 3}
+  DotNonSelected: {fileID: 21300000, guid: f3f2993e9a3e18b4ab9470248139c4d7, type: 3}
 --- !u!1 &368764616
 GameObject:
   m_ObjectHideFlags: 0
