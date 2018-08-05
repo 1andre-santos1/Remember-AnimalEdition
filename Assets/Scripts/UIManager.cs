@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject SettingsMenu;
 
+    public GameObject LoadingScreenLevelNumber;
+
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
     private float AmountIncrementBar;
@@ -31,6 +33,10 @@ public class UIManager : MonoBehaviour
     private GameManager gameManager;
     private bool isActive = false;
 
+    private void Start()
+    {
+        LoadingScreenLevelNumber.GetComponent<Text>().text = "Level " + (GameObject.FindObjectOfType<DataController>().levelIndex + 1);
+    }
     public void StartGame()
     {
         isActive = true;
