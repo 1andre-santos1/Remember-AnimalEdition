@@ -23,13 +23,15 @@ public class GameManager : MonoBehaviour
     public Sprite[] HostsSprite;
     public GameObject ParticleConfetti;
 
+    public GameObject Background;
+    public Sprite[] BackgroundImages;
+
     private UIManager uimanager;
     private DataController dataController;
     private LevelManager levelManager;
 
     public void Start()
     {
-
         dataController = GameObject.FindObjectOfType<DataController>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         uimanager = GameObject.FindObjectOfType<UIManager>();
@@ -44,6 +46,11 @@ public class GameManager : MonoBehaviour
         Bar_FailedMatchDecrement = level.bar_FailedMatchDecrement;
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
         InitialDelay = level.initialDelay;
+
+        if (level.host == "monkey")
+            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[0];
+        else if(level.host == "cow")
+            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[1];
 
         uimanager.StartGame();
         GameObject.FindObjectOfType<CardsGrid>().StartGame();
