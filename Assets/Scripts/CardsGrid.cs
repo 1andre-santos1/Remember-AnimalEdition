@@ -123,6 +123,7 @@ public class CardsGrid : MonoBehaviour
 
     IEnumerator BeginCardDelay()
     {
+        uiManager.BeginInitialDelayCount(gameManager.InitialDelay);
         yield return new WaitForSeconds(gameManager.InitialDelay);
         foreach (var card in ChildCards)
         {

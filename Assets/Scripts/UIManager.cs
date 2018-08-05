@@ -55,6 +55,24 @@ public class UIManager : MonoBehaviour
             HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[1];
     }
 
+    public void BeginInitialDelayCount(float delay)
+    {
+        StartCoroutine("CountEvent",delay);
+    }
+
+    IEnumerator CountEvent(float delay)
+    {
+        Text t = HostTalk.GetComponent<Text>();
+        while (delay > 0f)
+        {
+            t.text = "" + delay;
+            yield return new WaitForSeconds(1f);
+            delay--;
+        }
+        t.text = "Good Luck!";
+        yield return new WaitForSeconds(2f);
+    }
+
     public void MakeHostTalk()
     {
         Text t = HostTalk.GetComponent<Text>();
