@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager i;
+    private bool firstStart = true;
 
     // Use this for initialization
     void Awake()
@@ -24,6 +25,7 @@ public class LevelManager : MonoBehaviour
         Animator anim = GameObject.Find("Canvas").GetComponent<Animator>();
         anim.enabled = true;
         anim.Play("SplashScreen");
+        firstStart = false;
     }
 
     public void LoadScene(string level)
@@ -74,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 0 && !firstStart)
             GameObject.FindObjectOfType<MusicManager>().PlayMenuMusic();
         else
         {

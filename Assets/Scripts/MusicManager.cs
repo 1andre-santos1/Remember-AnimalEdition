@@ -23,11 +23,6 @@ public class MusicManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        PlayMenuMusic();
-    }
-
     public void PlayMenuMusic()
     {
         audioSource = GetComponent<AudioSource>();
