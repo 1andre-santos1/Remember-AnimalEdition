@@ -142,7 +142,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        uimanager.HidePanelWinGame();
         uimanager.HostTalk.transform.parent.transform.parent.gameObject.SetActive(false);
 
         foreach (var level in LevelsUnlocked)
@@ -171,6 +170,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
             Destroy(levelP);
         }
+        uimanager.HidePanelWinGame();
         uimanager.ShowPanelWinMenu();
     }
     IEnumerator WinEvent()
