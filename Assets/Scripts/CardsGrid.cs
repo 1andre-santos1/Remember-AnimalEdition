@@ -68,7 +68,7 @@ public class CardsGrid : MonoBehaviour
                 posY -= cardHeight + cardMargin;
                 cardIndex++;
 
-                if (cardIndex >= numberOfCards || posY < -6.4f)
+                if (cardIndex >= numberOfCards || posY < -5f)
                     break;
             }
             if (cardIndex >= numberOfCards || posX > 3f)

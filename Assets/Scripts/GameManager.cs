@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
 
         if (previousLevelStars >= numberOfStars)
         {
+
             StartCoroutine("WinEvent");
 
             return;
@@ -184,6 +185,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         uimanager.HidePanelWinGame();
+
+        uimanager.HostTalk.transform.parent.transform.parent.gameObject.SetActive(false);
 
         uimanager.ShowPanelWinMenu();
     }
