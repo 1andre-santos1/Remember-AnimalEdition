@@ -144,6 +144,7 @@ public class UIManager : MonoBehaviour
     {
         if (!gameManager.isGameActive)
             return;
+
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x + AmountIncrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
 
         if (StarsBar.GetComponent<RectTransform>().offsetMin.x >= 594f)
