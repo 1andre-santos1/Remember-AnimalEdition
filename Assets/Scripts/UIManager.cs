@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject HostSprite;
     public GameObject LevelText;
     public GameObject LevelStarsContainer;
-    public string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!"};
+    public string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!","Keep Going","Nice","Very cool!","You're learning!"};
 
     public GameObject PanelWinMenu;
     public GameObject PanelWin_TriesText;
@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        LoadingScreenLevelNumber.GetComponent<Text>().text = "Level " + (GameObject.FindObjectOfType<DataController>().levelIndex + 1);
+        LoadingScreenLevelNumber.GetComponent<Text>().text = "Level " + ((GameObject.FindObjectOfType<DataController>().levelIndex % 9) + 1);
 
         Level currentLevel = GameObject.FindObjectOfType<DataController>().GetLevels()[GameObject.FindObjectOfType<DataController>().levelIndex];
         if (currentLevel.host == "monkey")

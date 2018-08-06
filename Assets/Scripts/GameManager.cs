@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
 
             GameObject LevelInfo = levelP.transform.Find("UnlockedLevel").gameObject;
 
-            LevelInfo.transform.Find("Number").GetComponent<Text>().text = "" + (level.index + 1);
+            LevelInfo.transform.Find("Number").GetComponent<Text>().text = "" + ((level.index % 9) + 1);
             switch (level.host)
             {
                 case "monkey":

@@ -122,7 +122,7 @@ public class LevelSelector : MonoBehaviour
                     UnlockedContainer.SetActive(true);
 
                     GameObject textLevelNumber = UnlockedContainer.transform.Find("Number").gameObject;
-                    textLevelNumber.GetComponent<Text>().text = "" + (levelIndex + 1);
+                    textLevelNumber.GetComponent<Text>().text = "" + ((levelIndex % 9) + 1);
 
                     GameObject starsContainer = UnlockedContainer.transform.Find("StarsContainer").gameObject;
 
