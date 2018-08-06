@@ -31193,6 +31193,9 @@ MonoBehaviour:
   WinSound: {fileID: 8300000, guid: 7ae7922af5098e649ba68db8002a631b, type: 3}
   LoseSound: {fileID: 8300000, guid: 840709fba126de04ab9583075af74fec, type: 3}
   UnlockSound: {fileID: 8300000, guid: 0f705efa8e521a745a2b62ddf0f3d5c6, type: 3}
+  SplashScreen_TextAppear: {fileID: 8300000, guid: 4ab02c95666b03a4098d89a23875b9d9,
+    type: 3}
+  SplashScreen_Main: {fileID: 8300000, guid: 263bf495aaa265a43ab3da794ca672d4, type: 3}
 --- !u!82 &1787560955
 AudioSource:
   m_ObjectHideFlags: 0

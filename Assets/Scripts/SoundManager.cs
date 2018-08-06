@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip WinSound;
     public AudioClip LoseSound;
     public AudioClip UnlockSound;
+    public AudioClip SplashScreen_TextAppear;
+    public AudioClip SplashScreen_Main;
 
     private AudioSource audioSource;
 
@@ -57,6 +59,17 @@ public class SoundManager : MonoBehaviour
     public void PlayUnlockSound()
     {
         audioSource.clip = UnlockSound;
+        audioSource.Play();
+    }
+
+    public void PlayTextAppearSound()
+    {
+        audioSource.clip = SplashScreen_TextAppear;
+        audioSource.Play();
+    }
+    public void PlayMainSplashScreenSound()
+    {
+        audioSource.clip = SplashScreen_Main;
         audioSource.Play();
     }
 }

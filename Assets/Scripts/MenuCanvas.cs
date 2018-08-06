@@ -8,4 +8,13 @@ public class MenuCanvas : MonoBehaviour
     {
         GameObject.FindObjectOfType<MusicManager>().PlayMenuMusic();
     }
+    public void PlayTextAppearSound()
+    {
+        GameObject.FindObjectOfType<SoundManager>().PlayTextAppearSound();
+    }
+
+    public void PlayMainSplashScreenSound()
+    {
+        GameObject.FindObjectOfType<SoundManager>().PlayMainSplashScreenSound();
+    }
 }
