@@ -1597,7 +1597,7 @@ RectTransform:
   - {fileID: 947861899}
   - {fileID: 1441401781}
   m_Father: {fileID: 649280362}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelLoseMenu: {fileID: 1527681237}
   StarsBar: {fileID: 26836556}
+  DownBanner: {fileID: 1825520649}
   HostTalk: {fileID: 986346814}
   HostSprite: {fileID: 1779293998}
   LevelText: {fileID: 153657552}
@@ -2251,10 +2252,10 @@ RectTransform:
   - {fileID: 1240702995}
   - {fileID: 346971920}
   - {fileID: 1527681238}
-  - {fileID: 954307208}
   - {fileID: 866490604}
   - {fileID: 445951336}
   - {fileID: 1825520650}
+  - {fileID: 954307208}
   - {fileID: 859410209}
   - {fileID: 521189728}
   m_Father: {fileID: 0}
@@ -2761,7 +2762,7 @@ RectTransform:
   m_Children:
   - {fileID: 1952874640}
   m_Father: {fileID: 649280362}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2870,7 +2871,7 @@ RectTransform:
   - {fileID: 1090783044}
   - {fileID: 959711438}
   m_Father: {fileID: 649280362}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5346,7 +5347,7 @@ RectTransform:
   - {fileID: 1929264890}
   - {fileID: 1560869486}
   m_Father: {fileID: 649280362}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject PanelLoseMenu;
     public GameObject StarsBar;
 
+    public GameObject DownBanner;
     public GameObject HostTalk;
     public GameObject HostSprite;
     public GameObject LevelText;
@@ -217,11 +218,12 @@ public class UIManager : MonoBehaviour
     public void ShowPauseMenu()
     {
         PauseMenu.SetActive(true);
+        DownBanner.SetActive(false);
     }
     public void HidePauseMenu()
     {
         PauseMenu.SetActive(false);
-        
+        DownBanner.SetActive(true);
     }
     public void ResumeGame()
     {

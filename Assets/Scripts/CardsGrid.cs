@@ -153,13 +153,11 @@ public class CardsGrid : MonoBehaviour
                     }
                     else
                     {
-                        GameObject.Find("TopBanner").GetComponent<Animator>().enabled = true;
-                        GameObject.Find("TopBanner").GetComponent<Animator>().Play("Increase");
-
                         MatchedCards++;
                         if (MatchedCards == ChildCards.Length)
                         {
-                            
+                            GameObject.Find("TopBanner").GetComponent<Animator>().enabled = true;
+                            GameObject.Find("TopBanner").GetComponent<Animator>().Play("Increase");
                             gameManager.IncrementTimeLimit();
                             gameManager.isGameActive = false;
                             gameManager.WinGame();
@@ -175,7 +173,11 @@ public class CardsGrid : MonoBehaviour
                 }
             }
             if (ocurredMatching)
+            {
+                GameObject.Find("TopBanner").GetComponent<Animator>().enabled = true;
+                GameObject.Find("TopBanner").GetComponent<Animator>().Play("Increase");
                 gameManager.IncrementTimeLimit();
+            }
             else
                 gameManager.DecreaseTimeLeft();
         }
