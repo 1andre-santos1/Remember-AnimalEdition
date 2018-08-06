@@ -80,6 +80,8 @@ public class UIManager : MonoBehaviour
 
     IEnumerator CountEvent(float delay)
     {
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().enabled = true;
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().Play("Talking");
         Text t = HostTalk.GetComponent<Text>();
         while (delay > 0f)
         {
@@ -87,6 +89,8 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             delay--;
         }
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().enabled = true;
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().Play("Talking");
         t.text = "Good Luck!";
         yield return new WaitForSeconds(2f);
         t.text = "";
@@ -98,6 +102,9 @@ public class UIManager : MonoBehaviour
         string talk = HostTalkStrings[Random.Range(0, HostTalkStrings.Length)];
 
         t.text = talk;
+
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().enabled = true;
+        GameObject.Find("BackgroundHost").GetComponent<Animator>().Play("Talking");
     }
 
     public void StartBarDecreasing()
