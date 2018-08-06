@@ -6,7 +6,20 @@ public class CardsGrid : MonoBehaviour
 {
     public int CardsTurned;
     public int MatchedCards;
+
+    public Sprite[] CardsBlack;
+    public Sprite[] CardsBrown;
+    public Sprite[] CardsDarkBlue;
+    public Sprite[] CardsGreen;
+    public Sprite[] CardsGrey;
+    public Sprite[] CardsLightBlue;
+    public Sprite[] CardsPink;
+    public Sprite[] CardsRed;
+    public Sprite[] CardsWhite;
+    public Sprite[] CardsYellow;
+
     public Sprite[] CardsSprite;
+
     public GameObject CardPrefab;
 
     private GameObject[] ChildCards;
@@ -33,7 +46,6 @@ public class CardsGrid : MonoBehaviour
 
         StartCoroutine("BeginCardDelay");
     }
-
     public void InstantiateCards()
     {
         int numberOfCards = gameManager.NumberOfCards;
@@ -41,11 +53,11 @@ public class CardsGrid : MonoBehaviour
         int numberOfRows = numberOfCards / 2;
         int numberOfCols = Mathf.FloorToInt(numberOfCards / 3);
 
-        float cardSize = Mathf.Sqrt(5f/numberOfCards);
+        float cardSize = Mathf.Sqrt(5f / numberOfCards);
         float cardMargin = 0.15f;
 
-        float posX = 0f - cardSize/2f;
-        float posY = 0f + cardSize/2f;
+        float posX = 0f - cardSize / 2f;
+        float posY = 0f + cardSize / 2f;
         float cardWidth = -1f;
         float cardHeight = -1f;
 
@@ -53,13 +65,13 @@ public class CardsGrid : MonoBehaviour
         for (int col = 0; col < numberOfCols; col++)
         {
             posY = 0f + cardSize / 2f;
-            for(int row = 0; row < numberOfRows; row++)
+            for (int row = 0; row < numberOfRows; row++)
             {
                 GameObject cardP = Instantiate(CardPrefab) as GameObject;
                 cardP.transform.localPosition = new Vector3(posX, posY);
-                cardP.transform.localScale = new Vector3(cardSize, cardSize,1f);
+                cardP.transform.localScale = new Vector3(cardSize, cardSize, 1f);
                 cardP.transform.SetParent(transform);
-                if(cardWidth < 0f && cardHeight < 0f)
+                if (cardWidth < 0f && cardHeight < 0f)
                 {
                     cardWidth = cardP.GetComponent<BoxCollider2D>().bounds.size.x;
                     cardHeight = cardP.GetComponent<BoxCollider2D>().bounds.size.y;
@@ -78,7 +90,6 @@ public class CardsGrid : MonoBehaviour
 
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
     }
-
     public void FillGridWithCards()
     {
         List<Sprite> spritesSelected = new List<Sprite>();
@@ -87,8 +98,11 @@ public class CardsGrid : MonoBehaviour
         for (int i = 0; i < gameManager.NumberOfCards / 2; i++)
         {
             int randomNumber = Random.Range(0, CardsSprite.Length);
+
             while (spritesSelected.Contains(CardsSprite[randomNumber]))
                 randomNumber = Random.Range(0, CardsSprite.Length);
+
+            string spriteName = CardsSprite[randomNumber].name;
 
             spritesSelected.Add(CardsSprite[randomNumber]);
         }

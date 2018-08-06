@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject HostSprite;
     public GameObject LevelText;
     public GameObject LevelStarsContainer;
-    public string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!","Keep Going","Nice","Very cool!","You're learning!"};
+    private string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!","Keep Going","Nice","Very cool!","You're learning!"};
 
     public GameObject PanelWinMenu;
     public GameObject PanelWin_TriesText;
@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject LoadingScreenLevelNumber;
     public GameObject LoadingScreenHostSprite;
+    public GameObject LoadingScreenNumberOfCards;
 
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
@@ -46,6 +47,8 @@ public class UIManager : MonoBehaviour
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[1];
         else if (currentLevel.host == "panda")
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[2];
+
+        LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + GameObject.FindObjectOfType<GameManager>().NumberOfCards;
     }
 
     public void StartGame()
@@ -155,8 +158,8 @@ public class UIManager : MonoBehaviour
 
         StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(StarsBar.GetComponent<RectTransform>().offsetMin.x + AmountIncrementBar, StarsBar.GetComponent<RectTransform>().offsetMin.y);
 
-        if (StarsBar.GetComponent<RectTransform>().offsetMin.x >= 594f)
-            StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(594f, StarsBar.GetComponent<RectTransform>().offsetMin.y); ;
+        if (StarsBar.GetComponent<RectTransform>().offsetMin.x >= 598f)
+            StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(598f, StarsBar.GetComponent<RectTransform>().offsetMin.y); ;
     }
 
     public void UpdatePanelWinTriesText(string value)
@@ -189,7 +192,7 @@ public class UIManager : MonoBehaviour
     {
         if (StarsBar.GetComponent<RectTransform>().offsetMin.x > 453f)
             return 3;
-        else if (StarsBar.GetComponent<RectTransform>().offsetMin.x > 283f)
+        else if (StarsBar.GetComponent<RectTransform>().offsetMin.x > 280f)
             return 2;
         else
             return 1;

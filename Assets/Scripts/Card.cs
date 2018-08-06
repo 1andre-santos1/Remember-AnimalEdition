@@ -20,6 +20,8 @@ public class Card : MonoBehaviour
         gameManager = GameObject.FindObjectOfType<GameManager>();
         audioSource = GetComponent<AudioSource>();
 
+        //transform.Find("Front").GetComponent<SpriteRenderer>().sprite.name
+
         isTurned = true;
         isInteractable = true;
 
