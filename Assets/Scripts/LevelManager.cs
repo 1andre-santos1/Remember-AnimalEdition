@@ -84,6 +84,8 @@ public class LevelManager : MonoBehaviour
                 GameObject.FindObjectOfType<MusicManager>().PlayWorldMusic(0);
             else if (l.host == "cow")
                 GameObject.FindObjectOfType<MusicManager>().PlayWorldMusic(1);
+            else if (l.host == "cow")
+                GameObject.FindObjectOfType<MusicManager>().PlayWorldMusic(2);
         }
     }
 }

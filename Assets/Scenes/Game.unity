@@ -1788,12 +1788,14 @@ MonoBehaviour:
   HostsSprite:
   - {fileID: 21300000, guid: 4c760faa5f9905b49b5cf9d9d2265b93, type: 3}
   - {fileID: 21300000, guid: d3cfc22caa3344c4bbd1b44e2cc2332c, type: 3}
+  - {fileID: 21300000, guid: febd0df3c45176542b65e543794b09fa, type: 3}
   ParticleConfetti: {fileID: 1492942505806960, guid: c76bced4debb167429bfe1ea0d34cd3f,
     type: 2}
   Background: {fileID: 453344617}
   BackgroundImages:
   - {fileID: 21300000, guid: 2d931eedd63a0a1428b67a179a9a530a, type: 3}
   - {fileID: 21300000, guid: a32db904e17033943a26009622c869c7, type: 3}
+  - {fileID: 21300000, guid: 56cdeb0dc32114d4da06cf52d3e7d808, type: 3}
 --- !u!1 &521189727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +1994,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 954307207}
   SettingsMenu: {fileID: 445951335}
   LoadingScreenLevelNumber: {fileID: 430253552}
+  LoadingScreenHostSprite: {fileID: 1040258187}
 --- !u!1 &616663125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859410209
 RectTransform:
   m_ObjectHideFlags: 0

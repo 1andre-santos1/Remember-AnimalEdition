@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public GameObject SettingsMenu;
 
     public GameObject LoadingScreenLevelNumber;
+    public GameObject LoadingScreenHostSprite;
 
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
@@ -36,7 +37,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         LoadingScreenLevelNumber.GetComponent<Text>().text = "Level " + (GameObject.FindObjectOfType<DataController>().levelIndex + 1);
+
+        Level currentLevel = GameObject.FindObjectOfType<DataController>().GetLevels()[GameObject.FindObjectOfType<DataController>().levelIndex];
+        if (currentLevel.host == "monkey")
+            LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[0];
+        else if (currentLevel.host == "cow")
+            LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[1];
+        else if (currentLevel.host == "panda")
+            LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[2];
     }
+
     public void StartGame()
     {
         isActive = true;
@@ -59,6 +69,8 @@ public class UIManager : MonoBehaviour
             HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[0];
         else if (currentLevel.host == "cow")
             HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[1];
+        else if (currentLevel.host == "panda")
+            HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[2];
     }
 
     public void BeginInitialDelayCount(float delay)
