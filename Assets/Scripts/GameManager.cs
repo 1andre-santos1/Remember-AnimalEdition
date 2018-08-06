@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
 
         if (previousLevelStars >= numberOfStars)
         {
-
             StartCoroutine("WinEvent");
 
             return;

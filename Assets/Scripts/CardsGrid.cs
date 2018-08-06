@@ -153,9 +153,13 @@ public class CardsGrid : MonoBehaviour
                     }
                     else
                     {
+                        GameObject.Find("TopBanner").GetComponent<Animator>().enabled = true;
+                        GameObject.Find("TopBanner").GetComponent<Animator>().Play("Increase");
+
                         MatchedCards++;
                         if (MatchedCards == ChildCards.Length)
                         {
+                            
                             gameManager.IncrementTimeLimit();
                             gameManager.isGameActive = false;
                             gameManager.WinGame();
