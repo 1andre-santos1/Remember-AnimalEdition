@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
             Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[1];
         else if(level.host == "panda")
             Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[2];
+        else if (level.host == "pig")
+            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[3];
+        else if (level.host == "rabbit")
+            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[4];
 
         uimanager.StartGame();
         GameObject.FindObjectOfType<CardsGrid>().StartGame();
@@ -164,6 +168,12 @@ public class GameManager : MonoBehaviour
                     break;
                 case "panda":
                     LevelInfo.transform.Find("Host").GetComponent<Image>().sprite = HostsSprite[2];
+                    break;
+                case "pig":
+                    LevelInfo.transform.Find("Host").GetComponent<Image>().sprite = HostsSprite[3];
+                    break;
+                case "rabbit":
+                    LevelInfo.transform.Find("Host").GetComponent<Image>().sprite = HostsSprite[4];
                     break;
             }
 

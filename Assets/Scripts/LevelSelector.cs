@@ -16,7 +16,7 @@ public class LevelSelector : MonoBehaviour
     public Sprite DotNonSelected;
 
     private int worldIndex = 0;
-    private int maxWorldIndex = 3;
+    private int maxWorldIndex = 4;
 
     private DataController dataController;
 

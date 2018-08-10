@@ -47,6 +47,8 @@ public class UIManager : MonoBehaviour
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[1];
         else if (currentLevel.host == "panda")
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[2];
+        else if (currentLevel.host == "pig")
+            LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[3];
 
         LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + GameObject.FindObjectOfType<GameManager>().NumberOfCards;
     }
@@ -62,7 +64,7 @@ public class UIManager : MonoBehaviour
         AmountDecrementBar = gameManager.Bar_FailedMatchDecrement;
 
         HostTalk.GetComponent<Text>().text = "";
-        LevelText.GetComponent<Text>().text = "Level "+(GameObject.FindObjectOfType<DataController>().levelIndex+1);
+        LevelText.GetComponent<Text>().text = "Level "+ ((GameObject.FindObjectOfType<DataController>().levelIndex % 9) + 1);
 
         DataController dataController = GameObject.FindObjectOfType<DataController>();
         Level currentLevel = dataController.GetLevels()[dataController.levelIndex];
@@ -75,6 +77,10 @@ public class UIManager : MonoBehaviour
             HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[1];
         else if (currentLevel.host == "panda")
             HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[2];
+        else if (currentLevel.host == "pig")
+            HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[3];
+        else if (currentLevel.host == "rabbit")
+            HostSprite.GetComponent<Image>().sprite = gameManager.HostsSprite[4];
     }
 
     public void BeginInitialDelayCount(float delay)
