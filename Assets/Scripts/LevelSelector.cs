@@ -71,6 +71,11 @@ public class LevelSelector : MonoBehaviour
         UpdateDots();
     }
 
+    public void RestartWorldsPosition()
+    {
+        Worlds.GetComponent<RectTransform>().localPosition = new Vector2(0f, Worlds.GetComponent<RectTransform>().localPosition.y);
+    }
+
     private void FillWorldsLevels()
     {
         Player playerData = dataController.GetPlayer();
