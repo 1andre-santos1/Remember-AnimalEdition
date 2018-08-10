@@ -558,7 +558,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 1
+  - time: 0.8333333
     functionName: BeginGame
     data: 
     objectReferenceParameter: {fileID: 0}
