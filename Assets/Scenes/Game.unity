@@ -3473,11 +3473,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardsTurned: 0
   MatchedCards: 0
-  CardsBlack:
+  CardsColorWithOneCards:
+  - {fileID: 21300000, guid: c1be596856d942f4ebcac336f50ac9ff, type: 3}
+  - {fileID: 21300000, guid: b7b5b4c09437aaa4290dfb3815794dbb, type: 3}
+  CardsColorWithTwoCards:
+  - {fileID: 21300000, guid: e82b5d578ae3e714392ca0a1523423ad, type: 3}
+  - {fileID: 21300000, guid: 2aeee484a656d334ca936b414641aa6a, type: 3}
+  - {fileID: 21300000, guid: ec6928dc874d0724eb502136c9412858, type: 3}
+  - {fileID: 21300000, guid: 892342ee2f80e9f4a87745e819885802, type: 3}
+  - {fileID: 21300000, guid: 5f965b6b8caf7dc419e593b3e711e5d9, type: 3}
+  - {fileID: 21300000, guid: f605fab5b8802dd42a2e903845a8271a, type: 3}
+  - {fileID: 21300000, guid: 5cca9cfc59a4c974eb9fde0c52a93012, type: 3}
+  - {fileID: 21300000, guid: c6ed086aca54e1c45aca9eab4148e30d, type: 3}
+  CardsColorWithThreeCards:
   - {fileID: 21300000, guid: 2b51dd13e83c56b43b14c4730d7d6069, type: 3}
   - {fileID: 21300000, guid: e71451b6cd6a3bf4093e32ce21bfffc8, type: 3}
   - {fileID: 21300000, guid: c97980d6bbaf9dc4c9bd28e77fbc35c6, type: 3}
-  CardsBrown:
+  CardsColorWithFourCards:
+  - {fileID: 21300000, guid: c2b040fd7758b1d4db0b4516a3eeb2be, type: 3}
+  - {fileID: 21300000, guid: 96bcaba05a6fabb479c358f7a1714b40, type: 3}
+  - {fileID: 21300000, guid: 66e31958fa9a2de4883d5d2e90ce0b11, type: 3}
+  - {fileID: 21300000, guid: e39751bcf620cc84097feb375819e697, type: 3}
+  - {fileID: 21300000, guid: 2bdac296bc506a841926b03157666bd6, type: 3}
+  - {fileID: 21300000, guid: f6efec7b5af170644b053ca612ab9233, type: 3}
+  - {fileID: 21300000, guid: d66bf8b338d8b4e4db1781b7af2f83ff, type: 3}
+  - {fileID: 21300000, guid: 87ab6c3a1d52b124197db3639e95011a, type: 3}
+  CardsColorWithNineCards:
   - {fileID: 21300000, guid: 41a0d2d52ca57ee4f8a52d34b24712ab, type: 3}
   - {fileID: 21300000, guid: c32bd98db2cfba14d961b29c1dea1902, type: 3}
   - {fileID: 21300000, guid: 168480fba69e3af49a580867132ba0c2, type: 3}
@@ -3487,32 +3508,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6f724fea9960984090eda91615e6807, type: 3}
   - {fileID: 21300000, guid: b5496d271b426014fbc25f9e81fb5c75, type: 3}
   - {fileID: 21300000, guid: 398cdb787b1a53945a1dbffb5568d7d3, type: 3}
-  CardsDarkBlue:
-  - {fileID: 21300000, guid: e82b5d578ae3e714392ca0a1523423ad, type: 3}
-  - {fileID: 21300000, guid: 2aeee484a656d334ca936b414641aa6a, type: 3}
-  CardsGreen:
-  - {fileID: 21300000, guid: c2b040fd7758b1d4db0b4516a3eeb2be, type: 3}
-  - {fileID: 21300000, guid: 96bcaba05a6fabb479c358f7a1714b40, type: 3}
-  - {fileID: 21300000, guid: 66e31958fa9a2de4883d5d2e90ce0b11, type: 3}
-  - {fileID: 21300000, guid: e39751bcf620cc84097feb375819e697, type: 3}
-  CardsGrey:
-  - {fileID: 21300000, guid: 2bdac296bc506a841926b03157666bd6, type: 3}
-  - {fileID: 21300000, guid: f6efec7b5af170644b053ca612ab9233, type: 3}
-  - {fileID: 21300000, guid: d66bf8b338d8b4e4db1781b7af2f83ff, type: 3}
-  - {fileID: 21300000, guid: 87ab6c3a1d52b124197db3639e95011a, type: 3}
-  CardsLightBlue:
-  - {fileID: 21300000, guid: ec6928dc874d0724eb502136c9412858, type: 3}
-  - {fileID: 21300000, guid: 892342ee2f80e9f4a87745e819885802, type: 3}
-  CardsPink:
-  - {fileID: 21300000, guid: c1be596856d942f4ebcac336f50ac9ff, type: 3}
-  CardsRed:
-  - {fileID: 21300000, guid: b7b5b4c09437aaa4290dfb3815794dbb, type: 3}
-  CardsWhite:
-  - {fileID: 21300000, guid: 5f965b6b8caf7dc419e593b3e711e5d9, type: 3}
-  - {fileID: 21300000, guid: f605fab5b8802dd42a2e903845a8271a, type: 3}
-  CardsYellow:
-  - {fileID: 21300000, guid: 5cca9cfc59a4c974eb9fde0c52a93012, type: 3}
-  - {fileID: 21300000, guid: c6ed086aca54e1c45aca9eab4148e30d, type: 3}
   CardsSprite:
   - {fileID: 21300000, guid: 2b51dd13e83c56b43b14c4730d7d6069, type: 3}
   - {fileID: 21300000, guid: e71451b6cd6a3bf4093e32ce21bfffc8, type: 3}

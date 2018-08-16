@@ -7,16 +7,11 @@ public class CardsGrid : MonoBehaviour
     public int CardsTurned;
     public int MatchedCards;
 
-    public Sprite[] CardsBlack;
-    public Sprite[] CardsBrown;
-    public Sprite[] CardsDarkBlue;
-    public Sprite[] CardsGreen;
-    public Sprite[] CardsGrey;
-    public Sprite[] CardsLightBlue;
-    public Sprite[] CardsPink;
-    public Sprite[] CardsRed;
-    public Sprite[] CardsWhite;
-    public Sprite[] CardsYellow;
+    public Sprite[] CardsColorWithOneCards;
+    public Sprite[] CardsColorWithTwoCards;
+    public Sprite[] CardsColorWithThreeCards;
+    public Sprite[] CardsColorWithFourCards;
+    public Sprite[] CardsColorWithNineCards;
 
     public Sprite[] CardsSprite;
 
@@ -90,21 +85,58 @@ public class CardsGrid : MonoBehaviour
 
         ChildCards = GameObject.FindGameObjectsWithTag("Card");
     }
+    public bool ContainsAllCardsFromTheGroup(List<Sprite> ListContaining, Sprite[] List)
+    {
+        foreach (Sprite s in List)
+        {
+            if (!ListContaining.Contains(s))
+                return false;
+        }
+        return true;
+    }
     public void FillGridWithCards()
     {
         List<Sprite> spritesSelected = new List<Sprite>();
 
+        List<Sprite[]> groups = new List<Sprite[]> {CardsColorWithOneCards, CardsColorWithTwoCards, CardsColorWithThreeCards, CardsColorWithFourCards, CardsColorWithNineCards};
+
         //seleciona os ids (id da carta e do indice em cards sprite)
         for (int i = 0; i < gameManager.NumberOfCards / 2; i++)
         {
-            int randomNumber = Random.Range(0, CardsSprite.Length);
 
-            while (spritesSelected.Contains(CardsSprite[randomNumber]))
-                randomNumber = Random.Range(0, CardsSprite.Length);
+            int probGroupWithOneCards = 100 - gameManager.Probability_CardsWithSameColor;
+            int probGroupWithTwoCards = Mathf.FloorToInt(gameManager.Probability_CardsWithSameColor * 0.4f);
+            int probGroupWithThreeCards = Mathf.FloorToInt(gameManager.Probability_CardsWithSameColor * 0.3f);
+            int probGroupWithFourCards = Mathf.FloorToInt(gameManager.Probability_CardsWithSameColor * 0.2f);
+            int probGroupWithNineCards = Mathf.FloorToInt(gameManager.Probability_CardsWithSameColor * 0.1f);
 
-            string spriteName = CardsSprite[randomNumber].name;
+            int randomGroup = -1;
+            int groupIndex = -1;
+            do
+            {
+                randomGroup = Random.Range(0, 100);
 
-            spritesSelected.Add(CardsSprite[randomNumber]);
+                if (randomGroup < probGroupWithOneCards)
+                    groupIndex = 0;
+                else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards)
+                    groupIndex = 1;
+                else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards + probGroupWithThreeCards)
+                    groupIndex = 2;
+                else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards + probGroupWithThreeCards + probGroupWithFourCards)
+                    groupIndex = 3;
+                else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards + probGroupWithThreeCards + probGroupWithFourCards + probGroupWithNineCards)
+                    groupIndex = 4;
+
+            } while (ContainsAllCardsFromTheGroup(spritesSelected, groups[groupIndex]));
+
+            int randomNumber = Random.Range(0, groups[groupIndex].Length);
+
+            while (spritesSelected.Contains(groups[groupIndex][randomNumber]))
+                randomNumber = Random.Range(0, groups[groupIndex].Length);
+
+            string spriteName = groups[groupIndex][randomNumber].name;
+
+            spritesSelected.Add(groups[groupIndex][randomNumber]);
         }
 
         List<int> emptyCards = new List<int>();
