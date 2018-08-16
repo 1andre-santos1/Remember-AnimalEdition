@@ -124,7 +124,7 @@ public class CardsGrid : MonoBehaviour
                     groupIndex = 2;
                 else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards + probGroupWithThreeCards + probGroupWithFourCards)
                     groupIndex = 3;
-                else if (randomGroup < probGroupWithOneCards + probGroupWithTwoCards + probGroupWithThreeCards + probGroupWithFourCards + probGroupWithNineCards)
+                else
                     groupIndex = 4;
 
             } while (ContainsAllCardsFromTheGroup(spritesSelected, groups[groupIndex]));
