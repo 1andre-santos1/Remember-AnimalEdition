@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     private string[] HostTalkStrings = new string[] {"Good job friend!","That was very good!","Nice job!","Keep Going","Nice","Very cool!","You're learning!"};
 
     public GameObject PanelWinMenu;
-    public GameObject PanelWin_TriesText;
+    public GameObject NewRecordText;
     public GameObject[] PanelWin_Stars;
     public Sprite DarkStar;
     public Sprite Star;
@@ -51,6 +51,11 @@ public class UIManager : MonoBehaviour
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[3];
 
         LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + GameObject.FindObjectOfType<GameManager>().NumberOfCards;
+    }
+
+    public void ShowRecord()
+    {
+        NewRecordText.SetActive(true);
     }
 
     public void StartGame()
@@ -169,10 +174,6 @@ public class UIManager : MonoBehaviour
             StarsBar.GetComponent<RectTransform>().offsetMin = new Vector2(598f, StarsBar.GetComponent<RectTransform>().offsetMin.y); ;
     }
 
-    public void UpdatePanelWinTriesText(string value)
-    {
-        PanelWin_TriesText.GetComponent<Text>().text = value;
-    }
     public void UpdateStars(int numberOfStars)
     {
         switch (numberOfStars)

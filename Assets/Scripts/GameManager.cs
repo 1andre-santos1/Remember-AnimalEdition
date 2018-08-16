@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     public GameObject ParticleConfetti;
 
     public GameObject Background;
-    public Sprite[] BackgroundImages;
 
     private UIManager uimanager;
     private DataController dataController;
@@ -48,15 +47,16 @@ public class GameManager : MonoBehaviour
         InitialDelay = level.initialDelay;
 
         if (level.host == "monkey")
-            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[0];
-        else if(level.host == "cow")
-            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[1];
-        else if(level.host == "panda")
-            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[2];
+            Background.transform.GetChild(1).gameObject.SetActive(true);
+        else if (level.host == "cow")
+            Background.transform.GetChild(2).gameObject.SetActive(true);
+        else if (level.host == "panda")
+            Background.transform.GetChild(3).gameObject.SetActive(true);
         else if (level.host == "pig")
-            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[3];
+            Background.transform.GetChild(4).gameObject.SetActive(true);
         else if (level.host == "rabbit")
-            Background.GetComponent<SpriteRenderer>().sprite = BackgroundImages[4];
+            Background.transform.GetChild(5).gameObject.SetActive(true);
+
 
         uimanager.StartGame();
         GameObject.FindObjectOfType<CardsGrid>().StartGame();
@@ -98,9 +98,9 @@ public class GameManager : MonoBehaviour
 
         dataController.LoadData();
 
-        uimanager.UpdatePanelWinTriesText(""+Tries);
         int numberOfStars = uimanager.GetStarsBasedOnBar();
         uimanager.UpdateStars(numberOfStars);
+
 
         //get stars number for this level
         int previousLevelStars = dataController.GetLevels()[dataController.levelIndex].stars;
@@ -112,6 +112,8 @@ public class GameManager : MonoBehaviour
 
             return;
         }
+
+        uimanager.ShowRecord();
 
         //get all the levels previously unlocked
         List<Level> levelsPreviouslyUnlocked = new List<Level>();

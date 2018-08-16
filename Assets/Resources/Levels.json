@@ -37,7 +37,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 4
+      "starsToUnlock": 5
     },
     {
       "host": "monkey",
@@ -50,7 +50,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 6
+      "starsToUnlock": 7
     },
     {
       "host": "monkey",
@@ -63,7 +63,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 8
+      "starsToUnlock": 10
     },
     {
       "host": "monkey",
@@ -76,7 +76,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 10
+      "starsToUnlock": 12
     },
     {
       "host": "monkey",
@@ -89,7 +89,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 12
+      "starsToUnlock": 15
     },
     {
       "host": "monkey",
@@ -102,7 +102,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 14
+      "starsToUnlock": 17
     },
     {
       "host": "monkey",
@@ -115,7 +115,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 16
+      "starsToUnlock": 20
     },
     {
       "host": "cow",
@@ -128,7 +128,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 20
+      "starsToUnlock": 22
     },
     {
       "host": "cow",
@@ -141,7 +141,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 22
+      "starsToUnlock": 25
     },
     {
       "host": "cow",
@@ -154,7 +154,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 24
+      "starsToUnlock": 27
     },
     {
       "host": "cow",
@@ -167,7 +167,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 26
+      "starsToUnlock": 30
     },
     {
       "host": "cow",
@@ -180,7 +180,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 28
+      "starsToUnlock": 32
     },
     {
       "host": "cow",
@@ -193,7 +193,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 30
+      "starsToUnlock": 35
     },
     {
       "host": "cow",
@@ -206,7 +206,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 32
+      "starsToUnlock": 37
     },
     {
       "host": "cow",
@@ -219,7 +219,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 34
+      "starsToUnlock": 40
     },
     {
       "host": "cow",
@@ -232,7 +232,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 36
+      "starsToUnlock": 42
     },
     {
       "host": "panda",
@@ -245,7 +245,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 40
+      "starsToUnlock": 45
     },
     {
       "host": "panda",
@@ -258,7 +258,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 42
+      "starsToUnlock": 47
     },
     {
       "host": "panda",
@@ -271,7 +271,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 44
+      "starsToUnlock": 50
     },
     {
       "host": "panda",
@@ -284,7 +284,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 46
+      "starsToUnlock": 52
     },
     {
       "host": "panda",
@@ -297,7 +297,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 48
+      "starsToUnlock": 55
     },
     {
       "host": "panda",
@@ -310,7 +310,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 50
+      "starsToUnlock": 57
     },
     {
       "host": "panda",
@@ -323,7 +323,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 52
+      "starsToUnlock": 60
     },
     {
       "host": "panda",
@@ -336,7 +336,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 54
+      "starsToUnlock": 62
     },
     {
       "host": "panda",
@@ -349,7 +349,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 56
+      "starsToUnlock": 65
     },
     {
       "host": "pig",
@@ -362,7 +362,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 60
+      "starsToUnlock": 67
     },
     {
       "host": "pig",
@@ -375,7 +375,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 62
+      "starsToUnlock": 70
     },
     {
       "host": "pig",
@@ -388,7 +388,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 64
+      "starsToUnlock": 72
     },
     {
       "host": "pig",
@@ -401,7 +401,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 66
+      "starsToUnlock": 75
     },
     {
       "host": "pig",
@@ -414,7 +414,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 68
+      "starsToUnlock": 77
     },
     {
       "host": "pig",
@@ -427,7 +427,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 70
+      "starsToUnlock": 80
     },
     {
       "host": "pig",
@@ -440,7 +440,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 72
+      "starsToUnlock": 82
     },
     {
       "host": "pig",
@@ -453,7 +453,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 74
+      "starsToUnlock": 85
     },
     {
       "host": "pig",
@@ -466,7 +466,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 76
+      "starsToUnlock": 87
     },
     {
       "host": "rabbit",
@@ -479,7 +479,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 80
+      "starsToUnlock": 90
     },
     {
       "host": "rabbit",
@@ -492,7 +492,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 82
+      "starsToUnlock": 92
     },
     {
       "host": "rabbit",
@@ -505,7 +505,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 84
+      "starsToUnlock": 95
     },
     {
       "host": "rabbit",
@@ -518,7 +518,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 86
+      "starsToUnlock": 97
     },
     {
       "host": "rabbit",
@@ -531,7 +531,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 88
+      "starsToUnlock": 100
     },
     {
       "host": "rabbit",
@@ -544,7 +544,7 @@
       "initialDelay": 5,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 90
+      "starsToUnlock": 102
     },
     {
       "host": "rabbit",
@@ -557,7 +557,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 92
+      "starsToUnlock": 105
     },
     {
       "host": "rabbit",
@@ -570,7 +570,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 94
+      "starsToUnlock": 107
     },
     {
       "host": "rabbit",
@@ -583,7 +583,7 @@
       "initialDelay": 3,
       "locked": true,
       "stars": 0,
-      "starsToUnlock": 96
+      "starsToUnlock": 110
     }
   ]
 }
