@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         Probability_CardsWithSameColor = level.probability_CardsWithSameColor;
         InitialDelay = level.initialDelay;
 
+
         if (level.host == "monkey")
             Background.transform.GetChild(1).gameObject.SetActive(true);
         else if (level.host == "cow")
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
         else if (level.host == "rabbit")
             Background.transform.GetChild(5).gameObject.SetActive(true);
 
-
+        
         uimanager.StartGame();
         GameObject.FindObjectOfType<CardsGrid>().StartGame();
     }

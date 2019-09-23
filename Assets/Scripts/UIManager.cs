@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
     public GameObject LoadingScreenLevelNumber;
     public GameObject LoadingScreenHostSprite;
     public GameObject LoadingScreenNumberOfCards;
+    public GameObject LoadingScreenSpeedStars;
+    public GameObject LoadingScreenMemorizationStars;
+    public GameObject LoadingScreenDifficultyStars;
 
     private float TimeBarDecreasing;
     private float AmountBarDecreasing;
@@ -40,7 +43,8 @@ public class UIManager : MonoBehaviour
     {
         LoadingScreenLevelNumber.GetComponent<Text>().text = "Level " + ((GameObject.FindObjectOfType<DataController>().levelIndex % 9) + 1);
 
-        Level currentLevel = GameObject.FindObjectOfType<DataController>().GetLevels()[GameObject.FindObjectOfType<DataController>().levelIndex];
+        Level[] levels = GameObject.FindObjectOfType<DataController>().GetLevels();
+        Level currentLevel = levels[GameObject.FindObjectOfType<DataController>().levelIndex];
         if (currentLevel.host == "monkey")
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[0];
         else if (currentLevel.host == "cow")
@@ -50,7 +54,39 @@ public class UIManager : MonoBehaviour
         else if (currentLevel.host == "pig")
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[3];
 
-        LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + GameObject.FindObjectOfType<GameManager>().NumberOfCards;
+        LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + currentLevel.numberOfCards;
+
+        int maxSpeed = levels[levels.Length-1].bar_AutoAmountToDecrease;
+        int numSpeedStars = Mathf.CeilToInt((currentLevel.bar_AutoAmountToDecrease*3)/maxSpeed);
+        for(int i = 0; i < LoadingScreenSpeedStars.transform.childCount; i++)
+        {
+            if(i >= numSpeedStars)
+                LoadingScreenSpeedStars.transform.GetChild(i).GetComponent<Image>().sprite = DarkStar;
+            else
+                LoadingScreenSpeedStars.transform.GetChild(i).GetComponent<Image>().sprite = Star;
+        }
+
+        int maxProbabilitySameColor = 100;
+        int numMemorizationStars = Mathf.CeilToInt((currentLevel.probability_CardsWithSameColor*3)/maxProbabilitySameColor);
+        for(int i = 0; i < LoadingScreenMemorizationStars.transform.childCount; i++)
+        {
+            if(i >= numMemorizationStars)
+                LoadingScreenMemorizationStars.transform.GetChild(i).GetComponent<Image>().sprite = DarkStar;
+            else
+                LoadingScreenMemorizationStars.transform.GetChild(i).GetComponent<Image>().sprite = Star;
+        }
+
+        int maxCards = levels[levels.Length-1].numberOfCards;
+        int currentLevelDifficultySum = currentLevel.numberOfCards + numSpeedStars + numMemorizationStars;
+        int maxDifficultySum = maxCards + maxSpeed + maxProbabilitySameColor;
+        int numDifficultyStars = Mathf.CeilToInt((currentLevelDifficultySum*3)/maxDifficultySum);
+        for(int i = 0; i < LoadingScreenDifficultyStars.transform.childCount; i++)
+        {
+            if(i >= numDifficultyStars)
+                LoadingScreenDifficultyStars.transform.GetChild(i).GetComponent<Image>().sprite = DarkStar;
+            else
+                LoadingScreenDifficultyStars.transform.GetChild(i).GetComponent<Image>().sprite = Star;
+        }
     }
 
     public void ShowRecord()
