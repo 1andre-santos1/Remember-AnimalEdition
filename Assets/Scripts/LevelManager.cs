@@ -28,6 +28,15 @@ public class LevelManager : MonoBehaviour
         firstStart = false;
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.FindObjectOfType<AdManager>().ShowInterstitial();
+            Application.Quit();
+        }
+    }
+
     public void LoadScene(string level)
     {
         SceneManager.LoadScene(level);
@@ -47,6 +56,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadGame(int levelIndex)
     {
+        GameObject.FindObjectOfType<AdManager>().ShowInterstitial();
         GameObject.FindObjectOfType<DataController>().levelIndex = levelIndex;
         LoadScene("Game");
     }
