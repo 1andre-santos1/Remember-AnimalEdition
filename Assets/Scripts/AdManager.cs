@@ -30,7 +30,7 @@ public class AdManager : MonoBehaviour
         string testAdUnitId = "ca-app-pub-3940256099942544/1033173712";
 
         // Initialize an InterstitialAd.
-        this.interstitial = new InterstitialAd(testAdUnitId);
+        this.interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
