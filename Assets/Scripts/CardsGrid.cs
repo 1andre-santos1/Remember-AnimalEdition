@@ -48,8 +48,8 @@ public class CardsGrid : MonoBehaviour
         int numberOfRows = numberOfCards / 2;
         int numberOfCols = Mathf.FloorToInt(numberOfCards / 3);
 
-        float cardSize = Mathf.Sqrt(5f / numberOfCards);
-        float cardMargin = 0.15f;
+        float cardSize = Mathf.Sqrt(4.8f / numberOfCards);
+        float cardMargin = (cardSize*0.15f)/ Mathf.Sqrt(4.8f / 6);
 
         float posX = 0f - cardSize / 2f;
         float posY = 0f + cardSize / 2f;

@@ -53,6 +53,8 @@ public class UIManager : MonoBehaviour
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[2];
         else if (currentLevel.host == "pig")
             LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[3];
+        else if (currentLevel.host == "rabbit")
+            LoadingScreenHostSprite.GetComponent<Image>().sprite = GameObject.FindObjectOfType<GameManager>().HostsSprite[4];
 
         LoadingScreenNumberOfCards.GetComponent<Text>().text = "" + currentLevel.numberOfCards;
 

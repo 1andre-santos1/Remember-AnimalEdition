@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && isGameActive)
         {
             if (uimanager == null)
                 return;
