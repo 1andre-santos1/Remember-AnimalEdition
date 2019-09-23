@@ -86,6 +86,8 @@ public class LevelManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        // if(firstStart)
+        //     GameObject.FindObjectOfType<DataController>().LoadData();
         if (scene.buildIndex == 0 && !firstStart)
             GameObject.FindObjectOfType<MusicManager>().PlayMenuMusic();
         else

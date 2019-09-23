@@ -25,10 +25,7 @@ public class DataController : MonoBehaviour
         }
         else
             Destroy(gameObject);
-    }
 
-    private void Start()
-    {
         levels = JsonUtility.FromJson<Levels>((Resources.Load("Levels") as TextAsset).text);
         player = JsonUtility.FromJson<Player>((Resources.Load("Player") as TextAsset).text);
 

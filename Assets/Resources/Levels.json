@@ -113,7 +113,7 @@
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 15,
       "initialDelay": 3,
-      "locked": false,
+      "locked": true,
       "stars": 0,
       "starsToUnlock": 20
     },
@@ -230,7 +230,7 @@
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 25,
       "initialDelay": 3,
-      "locked": false,
+      "locked": true,
       "stars": 0,
       "starsToUnlock": 42
     },
@@ -347,7 +347,7 @@
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 40,
       "initialDelay": 3,
-      "locked": false,
+      "locked": true,
       "stars": 0,
       "starsToUnlock": 65
     },
@@ -464,7 +464,7 @@
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 50,
       "initialDelay": 3,
-      "locked": false,
+      "locked": true,
       "stars": 0,
       "starsToUnlock": 87
     },
@@ -581,7 +581,7 @@
       "bar_FailedMatchDecrement": 50,
       "probability_CardsWithSameColor": 65,
       "initialDelay": 3,
-      "locked": false,
+      "locked": true,
       "stars": 0,
       "starsToUnlock": 110
     }
